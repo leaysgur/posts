@@ -4,7 +4,7 @@ import { defineConfig } from "astro/config";
 const { PUBLIC_SHIKI_THEME } = loadEnv(import.meta.env.MODE, process.cwd(), "");
 
 export default defineConfig({
-  site: "https://leaysgur.github.io/posts",
+  site: "https://leaysgur.github.io",
   base: "/posts",
   compressHTML: true,
   markdown: {
