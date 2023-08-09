@@ -1,0 +1,4 @@
+{
+  "title": "3項演算子でifの入れ子",
+  "html": "<p>3項<a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/%B1%E9%BB%BB%BB%D2\">演算子</a>でifの入れ子って書けへんのかな？って思ってた矢先。<br />\n<a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/Google\">Google</a>のホリデーロゴのソースを覗いてたら見つけたこんな書き方・・・！</p>\n\n<div class=\"seemore\">\n    \n<div class=\"section\">\n    <h3>ソース</h3>\n    \n    <pre class=\"code lang-javascript\" data-lang=\"javascript\" data-unlink>var a, b;\na = b = 2;\n\n/* いつものifの入れ子 */\nif (a &gt; 10) {\n\ta = &#39;Higher than 10&#39;\n} else {\n\tif (a === 10) {\n\t\ta = &#39;Just 10&#39;\n\t} else {\n\t\ta = &#39;Lower than 10&#39;\n\t}\n}\n\n/* 3項演算子でifの入れ子 */\nb = (b &gt; 10) \n\t? &#39;Higher than 10&#39;\n\t: (b === 10)\n\t\t? &#39;Just 10&#39;\n\t\t: &#39;Lower than 10&#39;;</pre>\n<p>言われてみれば、なるほどｗ</p><p>こういう書き方もできるんですね！</p>\n\n</div>\n</div>"
+}

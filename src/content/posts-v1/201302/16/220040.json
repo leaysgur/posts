@@ -1,0 +1,4 @@
+{
+  "title": "ack使うなら一緒に.ackrcも",
+  "html": "<p>もっとはやく知っていれば・・。<br />\n日本語のページがあまりないのでちょっと苦労しました。</p>\n\n<div class=\"seemore\">\n    \n<div class=\"section\">\n    <h3>Better than <a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/grep\">grep</a> = ack</h3>\n    <p>このコマンドがすごく便利なのは以前紹介した通り。</p>\n\n    <blockquote>\n        <p>参考：<a href=\"http://lealog.hateblo.jp/entry/2012/10/02/234021\" target=\"_blank\" title=\"これからはgrepではなくackを使おうと - console.lealog();\">これからはgrepではなくackを使おうと - console.lealog();</a></p>\n\n    </blockquote>\n<p>しかもコレ、vimrcやbashrcみたく、設定ファイルを作れるという便利さ！<br />\nだらだら書く内容もないのでさらっとメモ。</p>\n\n<ul>\n<li>.ackrcは$HOME以下に置いてしまってOK</li>\n<li>--ignore-dir=hoge の指定はいつでも<a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/%C1%EA%C2%D0%A5%D1%A5%B9\">相対パス</a>で取ってくれるので、hoge/fuga とかしなくて良い</li>\n<li>--type-set=coffee=.coffee とすればファイルのタイプを増やせる</li>\n<li>.ackrcでなんかしなくても、カラーリングとかはしてくれたりする</li>\n</ul><p>またdotfilesが増えていきますね。</p>\n\n</div>\n</div>"
+}

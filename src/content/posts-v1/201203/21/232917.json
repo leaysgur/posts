@@ -1,0 +1,4 @@
+{
+  "title": "Macのプレビュー.appさえあれば、PDFの結合もURL埋め込みもできちゃう",
+  "html": "<p>感動したよ・・・ｗ</p><p>タイトル通りですが、<a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/Acrobat\">Acrobat</a>なんていりません！フリーのソフトもいりません！最初から何もいらんかったんや！</p>\n\n<div class=\"seemore\">\n    \n<div class=\"section\">\n    <h3>PDFの結合</h3>\n    <p>これについては前回の記事をご参照ください。</p>\n\n    <blockquote>\n        <p>参考：<a href=\"http://lealog.hateblo.jp/entry/2012/03/20/175341\" target=\"_blank\" title=\"MacでPDFを結合するなら、プレビューでやるのが便利\">MacでPDFを結合するなら、プレビューでやるのが便利</a></p>\n\n    </blockquote>\n\n</div>\n<div class=\"section\">\n    <h3>URLリンクの埋め込み</h3>\n    <p>これもあっさりできました。</p>\n\n<ol>\n<li>埋め込みたいPDFをプレビュー.appで開く。</li>\n<li>ツール→注釈→リンクを追加。</li>\n<li>範囲選択できるようになるのでリンクにしたい部分を選択。</li>\n<li>注釈パネルから、リンク先を選ぶ or 入力。</li>\n<li>保存する。</li>\n</ol><p>Macさんさいこーや！</p>\n\n</div>\n</div>"
+}

@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import { toPath } from "../libs/to-path";
+import RootLayout from "../components/root-layout.astro";
+import PostList from "../components/post-list/list.astro";
+import PostListItem from "../components/post-list/item.astro";
+
+const NUM_OF_RECENT_POSTS = 10;
+
+const [allPostsV1, allPostsV2] = await Promise.all([
+  // Latest posts-v1 post is 202308, there are sufficient posts to show
+  // In the near future, posts-v2 only will be used for recent posts
+  getCollection("posts-v1", (p) => p.id.startsWith("2023")),
+  getCollection("posts-v2"),
+]);
+
+const allPosts = [
+  ...allPostsV1.map((p) => ({
+    path: toPath(p.id),
+    title: p.data.title,
+  })),
+  ...allPostsV2.map((p) => ({
+    path: toPath(p.slug),
+    title: p.data.title,
+  })),
+]
+  .reverse()
+  .slice(0, NUM_OF_RECENT_POSTS);
+---
+
+<RootLayout>
+  <h1>Recent posts</h1>
+  <PostList>
+    {allPosts.map((post) => <PostListItem {...post} />)}
+  </PostList>
+  <a href="archive">All posts</a>
+</RootLayout>

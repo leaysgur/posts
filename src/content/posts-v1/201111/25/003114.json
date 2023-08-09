@@ -1,0 +1,4 @@
+{
+  "title": "先頭の記事だけにクラスを付与する",
+  "html": "<p>先頭の記事だけスタイルを変更したいとかの場合に。</p>\n\n<div class=\"seemore\">\n    \n<div class=\"section\">\n    <h3>ソース</h3>\n    <p>ループ内の先頭記事ボックスの任意の場所に、以下を記述。</p>\n\n    <pre class=\"code lang-php\" data-lang=\"php\" data-unlink>&lt;?php \n    if(isFirst()){\n        post_class(&#39;first_art&#39;);\n    }else{\n        post_class();\n    } \n?&gt;</pre>\n<p>そうすると、</p>\n\n    <pre class=\"code lang-html\" data-lang=\"html\" data-unlink>&lt;article class=&#34;xxx yyy zzz first_art&#34;&gt;hogehoge&lt;/article&gt;</pre>\n<p>という具合に。</p><p>function.phpに以下を書くのを忘れないように。</p>\n\n    <pre class=\"code lang-php\" data-lang=\"php\" data-unlink>function isFirst(){\n    global $wp_query;\n    return ($wp_query-&gt;current_post === 0);\n}</pre>\n\n</div>\n<div class=\"section\">\n    <h3>注意事項</h3>\n    <p>elseのくだりを書いておかないと、先頭記事じゃない記事に一切classがつかなくなります。</p>\n\n</div>\n</div>"
+}

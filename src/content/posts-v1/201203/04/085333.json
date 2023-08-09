@@ -1,0 +1,4 @@
+{
+  "title": "0か1の値、とある整数までの値をランダムに取りたい時",
+  "html": "<p>ぱっと思い出せないものは全てメモします・・。</p>\n\n<div class=\"seemore\">\n    \n<div class=\"section\">\n    <h3>0か1を取りたいとき</h3>\n    \n    <pre class=\"code lang-javascript\" data-lang=\"javascript\" data-unlink>var rndm = Math.floor(Math.random()*2);</pre>\n\n</div>\n<div class=\"section\">\n    <h3>0から10を取りたいとき</h3>\n    \n    <pre class=\"code lang-javascript\" data-lang=\"javascript\" data-unlink>var rndm = Math.floor(Math.random()*11);</pre>\n<p>最後に掛け算する数値-1が、ランダムに取れるというわけね！</p><p>ということは、</p>\n\n</div>\n<div class=\"section\">\n    <h3>1から10を取りたい時</h3>\n    \n    <pre class=\"code lang-javascript\" data-lang=\"javascript\" data-unlink>var rndm = Math.floor(Math.random()*10)+1;\n// 取得できるのは0-9、それに+1することで1-10が取れる</pre>\n<p>よし、覚えた！</p>\n\n</div>\n</div>"
+}

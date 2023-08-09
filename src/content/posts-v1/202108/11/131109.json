@@ -1,0 +1,4 @@
+{
+  "title": "ラベル付き文でif文をbreakする",
+  "html": "<p>っていう使い方もあるのか〜と久々に学びがあったのでメモ。<br />\n<br />\n</p>\n\n<div class=\"section\">\n    <h3>ラベル付き文</h3>\n    <p>こんな風に、`for`とかループに好きな名前をつけられる。</p>\n<pre class=\"code lang-javascript\" data-lang=\"javascript\" data-unlink>outer"
+}

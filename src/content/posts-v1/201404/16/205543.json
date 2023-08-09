@@ -1,0 +1,4 @@
+{
+  "title": "自分用のgruntのスターターつくった",
+  "html": "<p>毎回コピーしてくるのも面倒なので、ざっくり作った。<br />\n<br />\n</p>\n\n<div class=\"section\">\n    <h3>gitに</h3>\n    \n    <blockquote>\n        <p>参考：<a href=\"https://github.com/leader22/grunt-skeleton\" target=\"_blank\" title=\"leader22/grunt-skeleton\">leader22/grunt-skeleton</a></p>\n\n    </blockquote>\n<p>需要あればどうぞ。</p>\n\n</div>\n<div class=\"section\">\n    <h3>特になにも</h3>\n    <p>変わったことはしてないけども、各タスク間で引き回したいものを持たせるために、1つgrunt外な仕組みを使ってたりする。</p><p>grunt.configとかにも似たような機能はあるけど、カスタムにサクッと作りたいタスクと、それ以外のタスクでは実行タイミングが微妙に違ったりするらしく・・。</p><p>今のとこ、不便はないです。<br />\nよってGulpも試しただけであとは放置です。</p>\n\n</div>"
+}

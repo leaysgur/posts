@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import { toPath } from "../libs/to-path";
+import RootLayout from "../components/root-layout.astro";
+import PostList from "../components/post-list/list.astro";
+import PostListItem from "../components/post-list/item.astro";
+
+const [allPostsV1, allPostsV2] = await Promise.all([
+  getCollection("posts-v1"),
+  getCollection("posts-v2"),
+]);
+
+const allPosts = [
+  ...allPostsV1.map((p) => ({
+    path: toPath(p.id),
+    title: p.data.title,
+  })),
+  ...allPostsV2.map((p) => ({
+    path: toPath(p.slug),
+    title: p.data.title,
+  })),
+].reverse();
+---
+
+<RootLayout pageTitle="All posts">
+  <h1>All posts</h1>
+  <PostList>
+    {allPosts.map((post) => <PostListItem {...post} />)}
+  </PostList>
+</RootLayout>

@@ -1,0 +1,4 @@
+{
+  "title": "immerのコードを読んだ",
+  "html": "\n    <blockquote>\n        <p><a href=\"https://github.com/mweststrate/immer\">GitHub - mweststrate/immer: Create the next immutable state by mutating the current one</a></p>\n\n    </blockquote>\n<p>（MobXの作者による）イミュータブルに状態を操作するユーティリティライブラリ。</p><p>ちなみに、この世で最初にスターしたのは俺ですｗ<br />\n<br />\n</p>\n\n<div class=\"section\">\n    <h3>immerとは</h3>\n    <p>読んだのは`v0.8.2`。</p><p>ImmutableJSみたく独特な<a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/API\">API</a>を覚えなくてもいい、今まで通り配列やオブジェクトを変更すればいい。<br />\nそれなのにイミュータブルにデータを扱える！素敵！というやつ。</p>\n<pre class=\"code lang-javascript\" data-lang=\"javascript\" data-unlink><span class=\"synComment\">// いわゆるreducerが</span>\n<span class=\"synStatement\">const</span> byId = (state, action) =&gt; <span class=\"synIdentifier\">{</span>\n  <span class=\"synStatement\">switch</span> (action.type) <span class=\"synIdentifier\">{</span>\n    <span class=\"synStatement\">case</span> RECEIVE_PRODUCTS"
+}

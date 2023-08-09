@@ -1,0 +1,4 @@
+{
+  "title": "引っ張って更新のUIサンプル",
+  "html": "<p>突っ込みどころ満載だとは思いますが、誰かしらの参考になるなら・・・。</p>\n\n<div class=\"seemore\">\n    \n<div class=\"section\">\n    <h3>コードは以下から</h3>\n    <p><script type=\"text/javascript\" src=\"http://jsdo.it/blogparts/bw0Z/js\"></script><br />\n結果的にPC向けではないので、ご自分の環境に持ってきて動かすのが良いかも・・？</p>\n\n</div>\n<div class=\"section\">\n    <h3>気づいたこととか</h3>\n    <p>だいたい↑のコードのRead Meに書いたけども。</p>\n\n<ul>\n<li>やっぱ実際に何か作ると気付く点がいっぱい。</li>\n<li>レビューしてもらえるって素敵！</li>\n</ul>\n<ul>\n<li>ライブラリなしでやるのに慣れると、よくも悪くも中途半端になるなぁ。</li>\n<li>諦めて<a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/jQuery\">jQuery</a>に染まった方が、結果的に幸せなのかもしらん。</li>\n</ul>\n</div>\n</div>"
+}

@@ -1,0 +1,4 @@
+dist
+src/content/**/*.json
+src/content/**/*.md
+package-lock.json

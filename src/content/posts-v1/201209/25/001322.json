@@ -1,0 +1,4 @@
+{
+  "title": "grepのオプションについて調べてみた",
+  "html": "<p>ソシャゲCoderなんてのは、<a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/%A5%BB%A5%DE%A5%F3%A5%C6%A5%A3%A5%C3%A5%AFWeb\">セマンティックWeb</a>とは無縁のテキストタイピングに情熱を燃や・・(自戒と自虐<br />\nむしろコードというより日本語、もとい<a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/SJIS\">SJIS</a>との戦いが主であったりもするんですけど。</p><p>はてさて今回は<a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/grep\">grep</a>について。<br />\nクラス名とか、テンプレートの変数名とか、探したいやん。</p>\n\n<div class=\"seemore\">\n    \n<div class=\"section\">\n    <h3>helpをまるごとながめる</h3>\n    <pre class=\"code\" data-unlink>$ grep --help\n使用法: grep [オプション]‥‥ 文字列パターン [ファイル]‥‥\nSearch for PATTERN in each FILE or standard input.\nPATTERN is, by default, a basic regular expression (BRE).\nExample: grep -i &#39;hello world&#39; menu.h main.c\n\nRegexp selection and interpretation"
+}

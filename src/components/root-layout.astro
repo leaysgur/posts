@@ -1,0 +1,26 @@
+---
+export type Props = {
+  pageTitle?: string;
+};
+const { pageTitle } = Astro.props;
+const { origin } = Astro.url;
+
+const title = pageTitle ? `${pageTitle} | leaysgur` : "leaysgur";
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="author" content="leaysgur" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={origin} />
+    <meta property="og:title" content={title} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

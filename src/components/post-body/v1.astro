@@ -1,0 +1,108 @@
+---
+const { PUBLIC_SHIKI_THEME } = import.meta.env;
+---
+
+<p>v1</p>
+
+<div data-post-body data-shiki-theme={PUBLIC_SHIKI_THEME}>
+  <slot />
+</div>
+
+<script>
+  // Replace `word` into <code>word</code>.
+  (() => {
+    const replace = async (targetEl: Element) => {
+      targetEl.innerHTML = targetEl.innerHTML.replaceAll(
+        /`([^`]*?)`/g,
+        "<code>$1</code>",
+      );
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        replace(entry.target).finally(() => observer.unobserve(entry.target));
+      }
+    }, {});
+    const $targets = document.querySelectorAll(
+      "[data-post-body] :is(p, li, h3, h4, h5)",
+    );
+    for (const $target of $targets) observer.observe($target);
+  })();
+
+  // Apply syntax highlight to code block.
+  (() => {
+    // XXX: Is it possible to use local bundled `shiki`?
+    const importShiki = async () =>
+      new Promise((resolve, reject) => {
+        // Already loaded
+        // @ts-expect-error: Cannot find name 'shiki'.
+        if ("shiki" in window) return resolve(shiki);
+
+        // Loading started but not loaded
+        const loadedScriptEl = document.querySelector("script#shikicdn");
+        if (loadedScriptEl !== null) {
+          // @ts-expect-error: Property 'shiki' does not exist on type 'Window & typeof globalThis'.
+          loadedScriptEl.addEventListener("load", () => resolve(window.shiki));
+          loadedScriptEl.addEventListener("error", () =>
+            reject(new Error("Load shiki failed")),
+          );
+          loadedScriptEl.addEventListener("abort", () =>
+            reject(new Error("Load shiki failed")),
+          );
+          return;
+        }
+
+        // Not yet started
+        const scriptEl = document.createElement("script");
+        scriptEl.id = "shikicdn";
+        scriptEl.src = "https://unpkg.com/shiki";
+
+        // @ts-expect-error: Property 'shiki' does not exist on type 'Window & typeof globalThis'.
+        scriptEl.addEventListener("load", () => resolve(window.shiki));
+        scriptEl.addEventListener("error", () =>
+          reject(new Error("Load shiki failed")),
+        );
+        scriptEl.addEventListener("abort", () =>
+          reject(new Error("Load shiki failed")),
+        );
+
+        document.head.appendChild(scriptEl);
+      });
+
+    const shikiTheme =
+      document
+        .querySelector("[data-shiki-theme]")
+        ?.getAttribute("data-shiki-theme") ?? "";
+
+    const highlight = async (targetEl: Element) => {
+      const shiki = (await importShiki()) as any;
+      const highlighter = await shiki.getHighlighter({
+        theme: shikiTheme,
+        langs: [],
+      });
+
+      let options = {};
+      try {
+        // @ts-expect-error: Property 'dataset' does not exist on type 'Element'.
+        const lang = targetEl.dataset.lang || null;
+        await highlighter.loadLanguage(lang);
+        options = { lang };
+      } catch {}
+
+      targetEl.outerHTML = highlighter.codeToHtml(
+        targetEl.textContent,
+        options,
+      );
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        highlight(entry.target).finally(() => observer.unobserve(entry.target));
+      }
+    }, {});
+    const $targets = document.querySelectorAll("[data-post-body] pre");
+    for (const $target of $targets) observer.observe($target);
+  })();
+</script>

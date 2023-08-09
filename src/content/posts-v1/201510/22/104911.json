@@ -1,0 +1,4 @@
+{
+  "title": "tmuxが[exited]とだけ言い残して起動しないとき",
+  "html": "<p>環境構築って大変・・。<br />\n<br />\n</p>\n\n<div class=\"section\">\n    <h3>.tmux.confにおかしいところはないか</h3>\n    <p>どうやらこのファイルの記述におかしいのがあると、そっと死するようです。</p>\n\n<ul>\n<li>default-shellのパスが間違ってるとか</li>\n<li>default-commandで変なの書いてるとか</li>\n</ul><p>過去3回自分のこの記事にお世話になってるけど、ぜんぶ`default-shell`のパスが間違ってた。</p>\n\n</div>\n<div class=\"section\">\n    <h3>変なプロセスのせいでおかしくなってないか</h3>\n    <pre class=\"code lang-sh\" data-lang=\"sh\" data-unlink>ps aux | <span class=\"synStatement\">grep</span> tmux\n</pre><p>してpidを見つけ出してkillする、もしくはkillallでやっちまう。</p><p>no sessions って言われまくる場合はコレが効くらしい。</p>\n\n</div>"
+}

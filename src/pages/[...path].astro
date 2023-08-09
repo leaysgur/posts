@@ -1,0 +1,73 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { toPath } from "../libs/to-path";
+import RootLayout from "../components/root-layout.astro";
+import PostBodyV1 from "../components/post-body/v1.astro";
+import PostBodyV2 from "../components/post-body/v2.astro";
+
+export const getStaticPaths = async () => {
+  const [allPostsV1, allPostsV2] = await Promise.all([
+    getCollection("posts-v1"),
+    getCollection("posts-v2"),
+  ]);
+
+  return [
+    ...allPostsV1.map((post) => ({
+      params: { path: toPath(post.id) },
+      props: { entry: post },
+    })),
+    ...allPostsV2.map((post) => ({
+      params: { path: toPath(post.slug) },
+      props: { entry: post },
+    })),
+  ];
+};
+
+export type Props = {
+  entry: CollectionEntry<"posts-v1"> | CollectionEntry<"posts-v2">;
+};
+
+const { path } = Astro.params;
+const { entry } = Astro.props;
+const { title } = entry.data;
+
+let v1HtmlString;
+let v2RenderedEntry;
+if ("render" in entry) {
+  v2RenderedEntry = await entry.render();
+} else {
+  v1HtmlString = entry.data.html;
+}
+
+const [yyyy, mm, dd] = path!.split("/");
+---
+
+<RootLayout pageTitle={title}>
+  <h1>{title}</h1>
+  <time datetime={`${yyyy}-${mm}-${dd}`}>{yyyy}/{mm}/{dd}</time>
+  <hr />
+  {
+    v2RenderedEntry && (
+      <PostBodyV2>
+        <v2RenderedEntry.Content />
+      </PostBodyV2>
+    )
+  }
+  {
+    v1HtmlString && (
+      <PostBodyV1>
+        <Fragment set:html={v1HtmlString} />
+      </PostBodyV1>
+    )
+  }
+</RootLayout>
+
+<style is:global>
+  :where(code) {
+    background-color: #eee;
+  }
+  :where(pre code) {
+    background-color: unset;
+  }
+</style>

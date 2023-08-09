@@ -1,0 +1,4 @@
+{
+  "title": "ターミナルのカレントディレクトリからFinderを開く",
+  "html": "<p>わざわざ記事にするまでもないけど忘れないようになんでもメモメモ。</p>\n\n<div class=\"seemore\">\n    \n<div class=\"section\">\n    <h3>ターミナルで</h3>\n    <p>あっちゃこっちゃ移動して、これFinderで開きたい！って場合には、</p>\n<pre class=\"code\" data-unlink>open .</pre><p>おーぷん　どっと！</p><p>とやるとFinderで開いてくれます。<br />\n地味に便利。</p>\n\n    <blockquote>\n        <p>Coda2ではできなかった・・しょっく・・。</p>\n\n    </blockquote>\n\n</div>\n</div>"
+}

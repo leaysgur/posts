@@ -1,0 +1,4 @@
+{
+  "title": "JSHintが何もしないswitch/caseを許してくれないときは",
+  "html": "<p>なんて表現の難しいケースなのか。</p><p>以下のコードをみてください。</p>\n<pre class=\"code lang-javascript\" data-lang=\"javascript\" data-unlink><span class=\"synStatement\">switch</span> (scene) <span class=\"synIdentifier\">{</span>\n<span class=\"synStatement\">case</span> <span class=\"synConstant\">'opening'</span>\n<div class=\"section\">\n    <h3>いらないといえばいらない</h3>\n    <pre class=\"code lang-javascript\" data-lang=\"javascript\" data-unlink><span class=\"synStatement\">switch</span> (scene) <span class=\"synIdentifier\">{</span>\n<span class=\"synStatement\">case</span> <span class=\"synConstant\">'opening'</span>"
+}
