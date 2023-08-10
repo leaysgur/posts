@@ -3,6 +3,7 @@
 
 interface ImportMeta {
   readonly env: {
+    readonly PUBLIC_BASE_PATH: string;
     readonly PUBLIC_SHIKI_THEME: string;
   };
 }

@@ -4,9 +4,19 @@ const { PUBLIC_SHIKI_THEME } = import.meta.env;
 
 <p>v1</p>
 
-<div data-post-body data-shiki-theme={PUBLIC_SHIKI_THEME}>
+<div data-post-body data-shiki-theme={PUBLIC_SHIKI_THEME} class="v1-post-body">
   <slot />
 </div>
+
+<style>
+  .v1-post-body {
+    display: contents;
+  }
+
+  :global(.v1-post-body div.section) {
+    display: contents;
+  }
+</style>
 
 <script>
   // Replace `word` into <code>word</code>.

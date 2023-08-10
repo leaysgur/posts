@@ -47,27 +47,25 @@ const [yyyy, mm, dd] = path!.split("/");
   <h1>{title}</h1>
   <time datetime={`${yyyy}-${mm}-${dd}`}>{yyyy}/{mm}/{dd}</time>
   <hr />
-  {
-    v2RenderedEntry && (
-      <PostBodyV2>
-        <v2RenderedEntry.Content />
-      </PostBodyV2>
-    )
-  }
-  {
-    v1HtmlString && (
-      <PostBodyV1>
-        <Fragment set:html={v1HtmlString} />
-      </PostBodyV1>
-    )
-  }
+  <main>
+    {
+      v2RenderedEntry && (
+        <PostBodyV2>
+          <v2RenderedEntry.Content />
+        </PostBodyV2>
+      )
+    }
+    {
+      v1HtmlString && (
+        <PostBodyV1>
+          <Fragment set:html={v1HtmlString} />
+        </PostBodyV1>
+      )
+    }
+  </main>
 </RootLayout>
 
-<style is:global>
-  :where(code) {
-    background-color: #eee;
-  }
-  :where(pre code) {
-    background-color: unset;
+<style>
+  main {
   }
 </style>
