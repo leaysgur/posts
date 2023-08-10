@@ -10,6 +10,7 @@ const { origin } = Astro.url;
 const { PUBLIC_BASE_PATH } = import.meta.env;
 
 const title = pageTitle ? `${pageTitle} | leaysgur` : "leaysgur";
+
 ---
 
 <!DOCTYPE html>
@@ -32,7 +33,7 @@ const title = pageTitle ? `${pageTitle} | leaysgur` : "leaysgur";
   </head>
   <body>
     <header>
-      <a href={PUBLIC_BASE_PATH + "/"}>HOME</a>
+      <a href={PUBLIC_BASE_PATH + "/"}>🏠</a>
     </header>
 
     <slot />
