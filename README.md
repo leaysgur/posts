@@ -13,6 +13,7 @@ My blog posts.
   - headings marker, v1/v2 level
   - ul, ol
   - font-familly, settings
+  - Mobile Safari...
 - Add favicon
 - Fix site title
 - Render RSS

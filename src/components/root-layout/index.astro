@@ -7,10 +7,11 @@ export type Props = {
 const { pageTitle } = Astro.props;
 const { origin } = Astro.url;
 
-const { PUBLIC_BASE_PATH } = import.meta.env;
+const { PUBLIC_BASE_PATH, PUBLIC_SITE_TITLE } = import.meta.env;
 
-const title = pageTitle ? `${pageTitle} | leaysgur` : "leaysgur";
-
+const title = pageTitle
+  ? `${pageTitle} | ${PUBLIC_SITE_TITLE}`
+  : PUBLIC_SITE_TITLE;
 ---
 
 <!DOCTYPE html>
