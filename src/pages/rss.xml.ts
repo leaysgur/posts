@@ -3,6 +3,8 @@ import { getCollection } from "astro:content";
 import { toPath, toDate } from "../libs/utils";
 import type { APIRoute } from "astro";
 
+const { PUBLIC_SITE_TITLE, PUBLIC_SITE_DESCRIPTION } = import.meta.env;
+
 export const get: APIRoute = async ({ site }) => {
   const [allPostsV1, allPostsV2] = await Promise.all([
     getCollection("posts-v1"),
@@ -23,8 +25,8 @@ export const get: APIRoute = async ({ site }) => {
   ].reverse();
 
   return rss({
-    title: import.meta.env.PUBLIC_SITE_TITLE,
-    description: import.meta.env.PUBLIC_SITE_DESCRIPTION,
+    title: PUBLIC_SITE_TITLE,
+    description: PUBLIC_SITE_DESCRIPTION,
     site: site!,
     items: allPosts,
   });
