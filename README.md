@@ -16,6 +16,5 @@ My blog posts.
   - Mobile Safari...
 - Add favicon
 - Fix site title
-- Render RSS
 - v1-shiki by local
 - Translation?
