@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "export $(cat .env) && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "format": "prettier --write . --plugin=prettier-plugin-astro"
   },
