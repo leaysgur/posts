@@ -26,7 +26,7 @@ export const get: APIRoute = async ({ site }) => {
 
   return rss({
     title: PUBLIC_SITE_TITLE,
-    description: PUBLIC_SITE_DESCRIPTION || "missing",
+    description: PUBLIC_SITE_DESCRIPTION,
     site: site!,
     items: allPosts,
   });
