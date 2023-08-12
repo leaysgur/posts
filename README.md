@@ -5,15 +5,9 @@ My blog posts.
 ## TODOs
 
 - Styles
-  - colors: links,<time/>
-  - colors: <pre code/> for light theme
-  - font-size: <code/>
-  - max-size: <body/>
-  - padding: <blockquote/>
-  - headings marker, v1/v2 level
-  - ul, ol
-  - font-familly, settings
-  - Mobile Safari...
+  - global themes w/ shiki theme
+  - Page styles
+- Markup fix
 - Add favicon
 - Fix site title
 - v1-shiki by local

@@ -2,6 +2,18 @@
 
 ---
 
-<p>v2</p>
+<div class="v2-post-body">
+  <slot />
+</div>
 
-<slot />
+<style>
+  :global(.v2-post-body h2::before) {
+    content: "## ";
+  }
+  :global(.v2-post-body h3::before) {
+    content: "### ";
+  }
+  :global(.v2-post-body h4::before) {
+    content: "#### ";
+  }
+</style>

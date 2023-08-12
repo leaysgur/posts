@@ -2,10 +2,17 @@
 const { PUBLIC_SHIKI_THEME } = import.meta.env;
 ---
 
-<p>v1</p>
-
 <div data-post-body data-shiki-theme={PUBLIC_SHIKI_THEME} class="v1-post-body">
   <slot />
+
+  <hr />
+
+  <footer>
+    <p>
+      ⚠️ <a href="https://lealog.hateblo.jp/">はてなブログ</a
+      >時代の記事からエクスポートされたページのため、一部の表示に不具合があるかもしれません。
+    </p>
+  </footer>
 </div>
 
 <style>
@@ -13,8 +20,31 @@ const { PUBLIC_SHIKI_THEME } = import.meta.env;
     display: contents;
   }
 
-  :global(.v1-post-body div.section) {
-    display: contents;
+  :global(.v1-post-body br) {
+    display: none;
+  }
+  /* v1-posts use h3-h5 headings, 1 lv smaller than v2-posts(h2-h4) */
+  :global(.v1-post-body h3) {
+    font-size: var(--font-size-4);
+    &:before {
+      content: "## ";
+    }
+  }
+  :global(.v1-post-body h4) {
+    font-size: var(--font-size-3);
+    &:before {
+      content: "### ";
+    }
+  }
+  :global(.v1-post-body h5) {
+    font-size: var(--font-size-2);
+    &:before {
+      content: "#### ";
+    }
+  }
+
+  footer {
+    font-size: var(--font-size-0);
   }
 </style>
 
