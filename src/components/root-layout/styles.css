@@ -63,8 +63,9 @@
 :where(body) {
   min-block-size: 100%;
   max-inline-size: 1000px;
+  margin: 0;
   padding-inline: var(--size-3);
-  padding-block: var(--size-4);
+  padding-block: var(--size-3);
   margin-inline: auto;
   word-break: break-word;
 }
@@ -140,7 +141,7 @@
   gap: var(--size-2);
   margin-inline-start: 0;
   padding-inline: var(--size-2);
-  border-left: var(--size-1) solid var(--border);
+  border-inline-start: var(--size-1) solid var(--border);
   font-style: italic;
   white-space: pre-wrap;
 }

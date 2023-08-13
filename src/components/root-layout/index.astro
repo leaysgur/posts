@@ -34,17 +34,35 @@ const title = pageTitle
   </head>
   <body>
     <header>
-      <a href={PUBLIC_BASE_PATH + "/"}>🏠</a>
+      <nav>
+        <a href={PUBLIC_BASE_PATH + "/"}>ホーム</a>
+        {" | "}
+        <a href={PUBLIC_BASE_PATH + "/archive"}>すべての記事</a>
+        {" | "}
+        <a href={PUBLIC_BASE_PATH + "/rss.xml"}>RSS</a>
+      </nav>
     </header>
 
     <slot />
 
     <footer>
-      <a href={PUBLIC_BASE_PATH + "/rss.xml"}>RSS</a>
-      {" | "}
-      <a href="https://github.com/leaysgur">GitHub</a>
-      {" | "}
-      <a href="https://twitter.com/leaysgur">X(Twitter)</a>
+      <p>
+        ✨ Follow me on <a href="https://github.com/leaysgur">GitHub</a>, <a
+          href="https://twitter.com/leaysgur">X(Twitter)</a
+        >
+      </p>
     </footer>
   </body>
 </html>
+
+<style>
+  header {
+    display: flex;
+    justify-content: end;
+  }
+  footer {
+    display: flex;
+    justify-content: end;
+    border-block-start: var(--size-0) solid var(--border);
+  }
+</style>
