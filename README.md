@@ -7,6 +7,6 @@ My blog posts.
 - Styles
   - Page styles
 - Markup fix
-- Fix site title
+- Fix site title + favicon
 - v1-shiki by local
 - Translation?

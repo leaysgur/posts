@@ -30,7 +30,6 @@ export type Props = {
 
 const { path } = Astro.params;
 const { entry } = Astro.props;
-const { title } = entry.data;
 
 let v1HtmlString;
 let v2RenderedEntry;
@@ -40,14 +39,23 @@ if ("render" in entry) {
   v1HtmlString = entry.data.html;
 }
 
+const { title } = entry.data;
 const [yyyy, mm, dd] = path!.split("/");
 ---
 
 <RootLayout pageTitle={title}>
-  <h1>{title}</h1>
-  <time datetime={`${yyyy}-${mm}-${dd}`}>{yyyy}/{mm}/{dd}</time>
-  <hr />
-  <main>
+  <article>
+    <header>
+      <h1>{title}</h1>
+      <div>
+        <time datetime={`${yyyy}-${mm}-${dd}`}>{yyyy}/{mm}/{dd}</time>
+        <a
+          href={`https://github.com/leaysgur/posts/edit/main/src/content/${entry.collection}/${entry.id}`}
+          >編集</a
+        >
+      </div>
+    </header>
+
     {
       v2RenderedEntry && (
         <PostBodyV2>
@@ -62,5 +70,22 @@ const [yyyy, mm, dd] = path!.split("/");
         </PostBodyV1>
       )
     }
-  </main>
+  </article>
 </RootLayout>
+
+<style>
+  header {
+    display: grid;
+    gap: var(--size-2);
+    border-block-end: var(--size-0) solid var(--border);
+    padding-block-end: var(--size-2);
+  }
+  header h1 {
+    margin-block-end: 0;
+    line-height: 1;
+  }
+  header div {
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
