@@ -10,9 +10,15 @@ const [yyyy, mm, dd] = path.split("/");
 
 <li>
   <div>
+    <time datetime={`${yyyy}-${mm}-${dd}`}>{yyyy}/{mm}/{dd}</time>
     <h2>
       <a href={path}>{title}</a>
     </h2>
-    <time datetime={`${yyyy}-${mm}-${dd}`}>{yyyy}/{mm}/{dd}</time>
   </div>
 </li>
+
+<style>
+  h2 {
+   margin-block: 0;
+  }
+</style>
