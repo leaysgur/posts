@@ -1,7 +1,4 @@
-/**
- * Based: https://github.com/kognise/water.css
- * Inspired: https://github.com/argyleink/open-props/blob/main/src/extra/normalize.src.css
- */
+/** Inspired: https://github.com/argyleink/open-props/blob/main/src/extra/normalize.src.css */
 
 :root {
   --size-0: 0.01rem;
@@ -20,28 +17,26 @@
 }
 
 :root {
-  --surface-1: #f5f6f8;
-  --surface-2: #efefef;
-  --selection: #9e9e9e;
-  --text-1: #363636;
-  --text-2: #000;
-  --links: #0076d1;
-  --focus: #0096bfab;
-  --border: #dbdbdb;
-  --code: #000;
+  --background: #fdfeff;
+  --text-1: #2d3140;
+  --text-2: #383c52;
+  --links: #00598b;
+  --code-bg: #dfe3ef;
+  --code-fg: #51545d;
+  --focus: #7bc1ce;
+  --border: #4f6476;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --surface-1: #202b38;
-    --surface-2: #161f27;
-    --selection: #1c76c5;
-    --text-1: #dbdbdb;
-    --text-2: #fff;
-    --links: #41adff;
-    --focus: #0096bfab;
-    --border: #526980;
-    --code: #ffbe85;
+    --background: #2b2e3b;
+    --text-1: #ecf5f9;
+    --text-2: #edf3f6;
+    --links: #77c1ce;
+    --code-bg: #51545d;
+    --code-fg: #597a78;
+    --focus: #236997;
+    --border: #1d6268;
     color-scheme: dark;
   }
 }
@@ -58,7 +53,7 @@
   line-height: 1.5;
   -webkit-text-size-adjust: none;
   color: var(--text-1);
-  background: var(--surface-1);
+  background: var(--background);
 
   @media (prefers-reduced-motion: no-preference) {
     scroll-behavior: smooth;
@@ -79,7 +74,7 @@
 }
 
 ::selection {
-  background-color: var(--selection);
+  background-color: var(--focus);
   color: var(--text-2);
 }
 
@@ -128,14 +123,15 @@
   overflow-x: auto;
   padding-block: var(--size-2);
   padding-inline: var(--size-2);
-  background: var(--surface-2);
+  background: var(--code-bg);
+  border: var(--size-0) dotted var(--border);
 }
 
 :where(:not(pre) > code) {
   padding-block: var(--size-1);
   padding-inline: var(--size-2);
   border-radius: var(--size-2);
-  background: var(--surface-2);
+  background: var(--code-bg);
   color: var(--code);
 }
 
@@ -144,7 +140,7 @@
   gap: var(--size-2);
   margin-inline-start: 0;
   padding-inline: var(--size-2);
-  border-left: var(--size-1) solid var(--focus);
+  border-left: var(--size-1) solid var(--border);
   font-style: italic;
   white-space: pre-wrap;
 }
