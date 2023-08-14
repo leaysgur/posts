@@ -1,16 +1,28 @@
 ---
-
+export type Props = {
+  editLink: string;
+};
+const {
+  props: { editLink },
+} = Astro;
 ---
 
 <div class="v2-post-body">
   <slot />
+
+  <hr />
+
+  <footer>
+    <p>
+      📝 <a href={editLink}>GitHubで編集</a>
+    </p>
+  </footer>
 </div>
 
 <style>
   .v2-post-body {
     display: contents;
   }
-
   :global(.v2-post-body h2::before) {
     content: "## ";
   }
@@ -19,5 +31,9 @@
   }
   :global(.v2-post-body h4::before) {
     content: "#### ";
+  }
+
+  footer {
+    font-size: var(--font-size-0);
   }
 </style>

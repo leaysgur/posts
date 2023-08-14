@@ -4,8 +4,10 @@ import "./styles.css";
 export type Props = {
   pageTitle?: string;
 };
-const { pageTitle } = Astro.props;
-const { origin } = Astro.url;
+const {
+  props: { pageTitle },
+  url: { origin },
+} = Astro;
 
 const { PUBLIC_BASE_PATH, PUBLIC_SITE_TITLE } = import.meta.env;
 

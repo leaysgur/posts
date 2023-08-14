@@ -27,9 +27,10 @@ export const getStaticPaths = async () => {
 export type Props = {
   entry: CollectionEntry<"posts-v1"> | CollectionEntry<"posts-v2">;
 };
-
-const { path } = Astro.params;
-const { entry } = Astro.props;
+const {
+  params: { path },
+  props: { entry },
+} = Astro;
 
 let v1HtmlString;
 let v2RenderedEntry;
@@ -47,18 +48,14 @@ const [yyyy, mm, dd] = path!.split("/");
   <article>
     <header>
       <h1>{title}</h1>
-      <div>
-        <time datetime={`${yyyy}-${mm}-${dd}`}>{yyyy}/{mm}/{dd}</time>
-        <a
-          href={`https://github.com/leaysgur/posts/edit/main/src/content/${entry.collection}/${entry.id}`}
-          >編集</a
-        >
-      </div>
+      <time datetime={`${yyyy}-${mm}-${dd}`}>{yyyy}/{mm}/{dd}</time>
     </header>
 
     {
       v2RenderedEntry && (
-        <PostBodyV2>
+        <PostBodyV2
+          editLink={`https://github.com/leaysgur/posts/edit/main/src/content/${entry.collection}/${entry.id}`}
+        >
           <v2RenderedEntry.Content />
         </PostBodyV2>
       )
@@ -75,17 +72,11 @@ const [yyyy, mm, dd] = path!.split("/");
 
 <style>
   header {
-    display: grid;
-    gap: var(--size-2);
-    border-block-end: var(--size-0) solid var(--border);
     padding-block-end: var(--size-2);
+    border-block-end: var(--size-0) solid var(--border);
   }
   header h1 {
-    margin-block-end: 0;
+    margin-block-end: var(--size-2);
     line-height: 1;
-  }
-  header div {
-    display: flex;
-    justify-content: space-between;
   }
 </style>

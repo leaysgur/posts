@@ -3,7 +3,9 @@ export type Props = {
   path: string;
   title: string;
 };
-const { path, title } = Astro.props;
+const {
+  props: { path, title },
+} = Astro;
 
 const [yyyy, mm, dd] = path.split("/");
 ---
