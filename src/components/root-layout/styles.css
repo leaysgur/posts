@@ -14,6 +14,9 @@
   --font-size-4: 1.5rem;
   --font-size-5: 2rem;
   --font-size-6: 2.5rem;
+  --font-lineheight-0: 1.1;
+  --font-lineheight-1: 1.25;
+  --font-lineheight-2: 1.375;
 }
 
 :root {
@@ -50,7 +53,7 @@
 :where(html) {
   block-size: 100%;
   font-family: system-ui, sans-serif;
-  line-height: 1.5;
+  line-height: var(--font-lineheight-2);
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: none;
   color: var(--text-1);
@@ -97,6 +100,9 @@
   block-size: auto;
 }
 
+:where(h1, h2, h3, h4, h5, h6) {
+  line-height: var(--font-lineheight-1);
+}
 :where(h1, h2, h3, h4, h5, h6, strong) {
   color: var(--text-2);
 }
@@ -120,7 +126,7 @@
 }
 
 :where(pre) {
-  line-height: 1.25;
+  line-height: var(--font-lineheight-0);
   white-space: pre;
   overflow-x: auto;
   padding-block: var(--size-2);
