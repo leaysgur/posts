@@ -153,12 +153,6 @@
   white-space: pre-wrap;
 }
 
-:where(hr) {
-  border: none;
-  height: var(--size-0);
-  background-color: var(--border);
-}
-
 :where(ol, ul) {
-  padding-inline-start: var(--size-5);
+  padding-inline-start: var(--size-3);
 }

@@ -5,8 +5,6 @@ const { PUBLIC_SHIKI_THEME } = import.meta.env;
 <div data-post-body data-shiki-theme={PUBLIC_SHIKI_THEME} class="v1-post-body">
   <slot />
 
-  <hr />
-
   <footer>
     <p>
       ⚠️ <a href="https://lealog.hateblo.jp/">はてなブログ</a
@@ -43,6 +41,7 @@ const { PUBLIC_SHIKI_THEME } = import.meta.env;
   }
 
   footer {
+    border-block-start: var(--size-0) solid var(--border);
     font-size: var(--font-size-0);
   }
 </style>

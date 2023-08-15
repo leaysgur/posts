@@ -10,8 +10,6 @@ const {
 <div class="v2-post-body">
   <slot />
 
-  <hr />
-
   <footer>
     <p>
       📝 <a href={editLink}>GitHubで編集</a>
@@ -34,6 +32,7 @@ const {
   }
 
   footer {
+    border-block-start: var(--size-0) solid var(--border);
     font-size: var(--font-size-0);
   }
 </style>
