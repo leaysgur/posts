@@ -58,8 +58,9 @@
   -webkit-text-size-adjust: none;
   color: var(--text-1);
   background: var(--background);
-
-  @media (prefers-reduced-motion: no-preference) {
+}
+@media (prefers-reduced-motion: no-preference) {
+  :where(html) {
     scroll-behavior: smooth;
   }
 }
@@ -88,10 +89,9 @@
   -webkit-tap-highlight-color: transparent;
   color: var(--links);
   text-underline-offset: var(--size-1);
-
-  &:where(:not(:hover)) {
-    text-decoration: none;
-  }
+}
+:where(a:not(:hover)) {
+  text-decoration: none;
 }
 
 :where(img, svg, video) {
