@@ -1,9 +1,9 @@
 ---
 export type Props = {
-  editLink: string;
+  editPath: string;
 };
 const {
-  props: { editLink },
+  props: { editPath },
 } = Astro;
 ---
 
@@ -12,7 +12,10 @@ const {
 
   <footer>
     <p>
-      📝 <a href={editLink}>GitHubで編集</a>
+      📝 <a
+        href={`https://github.com/leaysgur/posts/edit/main/src/content/${editPath}`}
+        target="_blank">GitHubで編集</a
+      >
     </p>
   </footer>
 </div>
