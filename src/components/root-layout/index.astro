@@ -21,11 +21,11 @@ const title = pageTitle
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={href} />
-    <meta property="og:title" content={title} />
     <link rel="canonical" href={href} />
-    <title>{title}</title>
     <link
       rel="icon"
       type="image/svg+xml"
