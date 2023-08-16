@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@astrojs/rss": "^2.4.4",
-    "astro": "^2.10.3"
+    "astro": "^2.10.3",
+    "shikiji": "^0.4.0"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.1.1",

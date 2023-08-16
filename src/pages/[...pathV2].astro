@@ -1,0 +1,45 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { toPath } from "../libs/utils";
+import RootLayout from "../components/root-layout/index.astro";
+import PostHeader from "../components/post-header.astro";
+import PostBodyV2 from "../components/post-body/v2.astro";
+
+export const getStaticPaths = async () => {
+  const allPostsV2 = await getCollection("posts-v2");
+
+  return allPostsV2.map((post) => ({
+    params: { pathV2: toPath(post.slug) },
+    props: { entry: post },
+  }));
+};
+
+export type Props = {
+  entry: CollectionEntry<"posts-v2">;
+};
+const {
+  params: { pathV2 },
+  props: { entry },
+} = Astro;
+
+const v2RenderedEntry = await entry.render();
+
+const { title } = entry.data;
+const [yyyy, mm, dd] = pathV2!.split("/");
+---
+
+<RootLayout pageTitle={title}>
+  <article>
+    <PostHeader 
+      title={title}
+      yyyymmdd={[yyyy,mm,dd]}
+    />
+
+    <PostBodyV2
+      editLink={`https://github.com/leaysgur/posts/edit/main/src/content/${entry.collection}/${entry.id}`}
+    >
+      <v2RenderedEntry.Content />
+    </PostBodyV2>
+  </article>
+</RootLayout>

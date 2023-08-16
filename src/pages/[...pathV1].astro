@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { toPath } from "../libs/utils";
+import RootLayout from "../components/root-layout/index.astro";
+import PostHeader from "../components/post-header.astro";
+import PostBodyV1 from "../components/post-body/v1.astro";
+
+export const getStaticPaths = async () => {
+  const allPostsV1 = await getCollection("posts-v1");
+
+  return allPostsV1.slice(-4).map((post) => ({
+    params: { pathV1: toPath(post.id) },
+    props: { entry: post },
+  }));
+};
+
+export type Props = {
+  entry: CollectionEntry<"posts-v1">;
+};
+const {
+  params: { pathV1 },
+  props: { entry },
+} = Astro;
+
+const v1HtmlString = entry.data.html;
+
+const { title } = entry.data;
+const [yyyy, mm, dd] = pathV1!.split("/");
+---
+
+<RootLayout pageTitle={title}>
+  <article>
+    <PostHeader 
+      title={title}
+      yyyymmdd={[yyyy,mm,dd]}
+    />
+
+    <PostBodyV1>
+      <Fragment set:html={v1HtmlString} />
+    </PostBodyV1>
+  </article>
+</RootLayout>

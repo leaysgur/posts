@@ -70,53 +70,16 @@ const { PUBLIC_SHIKI_THEME } = import.meta.env;
 
   // Apply syntax highlight to code block.
   (() => {
-    // XXX: Is it possible to use local bundled `shiki`?
-    const importShiki = async () =>
-      new Promise((resolve, reject) => {
-        // Already loaded
-        // @ts-expect-error: Cannot find name 'shiki'.
-        if ("shiki" in window) return resolve(shiki);
-
-        // Loading started but not loaded
-        const loadedScriptEl = document.querySelector("script#shikicdn");
-        if (loadedScriptEl !== null) {
-          // @ts-expect-error: Property 'shiki' does not exist on type 'Window & typeof globalThis'.
-          loadedScriptEl.addEventListener("load", () => resolve(window.shiki));
-          loadedScriptEl.addEventListener("error", () =>
-            reject(new Error("Load shiki failed")),
-          );
-          loadedScriptEl.addEventListener("abort", () =>
-            reject(new Error("Load shiki failed")),
-          );
-          return;
-        }
-
-        // Not yet started
-        const scriptEl = document.createElement("script");
-        scriptEl.id = "shikicdn";
-        scriptEl.src = "https://unpkg.com/shiki";
-
-        // @ts-expect-error: Property 'shiki' does not exist on type 'Window & typeof globalThis'.
-        scriptEl.addEventListener("load", () => resolve(window.shiki));
-        scriptEl.addEventListener("error", () =>
-          reject(new Error("Load shiki failed")),
-        );
-        scriptEl.addEventListener("abort", () =>
-          reject(new Error("Load shiki failed")),
-        );
-
-        document.head.appendChild(scriptEl);
-      });
-
     const shikiTheme =
       document
         .querySelector("[data-shiki-theme]")
         ?.getAttribute("data-shiki-theme") ?? "";
 
     const highlight = async (targetEl: Element) => {
-      const shiki = (await importShiki()) as any;
-      const highlighter = await shiki.getHighlighter({
-        theme: shikiTheme,
+      const { getHighlighter } = await import("shikiji");
+      const highlighter = await getHighlighter({
+        // @ts-expect-error: Type 'string' is not assignable
+        themes: [shikiTheme],
         langs: [],
       });
 
@@ -129,7 +92,7 @@ const { PUBLIC_SHIKI_THEME } = import.meta.env;
       } catch {}
 
       targetEl.outerHTML = highlighter.codeToHtml(
-        targetEl.textContent,
+        targetEl.textContent ?? "",
         options,
       );
     };

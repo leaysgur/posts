@@ -5,6 +5,5 @@ My blog posts.
 ## TODOs
 
 - Markup fix
-- Fix site title + favicon
-- v1-shiki by local, shikiji?
+- 404
 - Translation?

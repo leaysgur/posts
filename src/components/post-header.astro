@@ -1,0 +1,24 @@
+---
+export type Props = {
+  title: string;
+  yyyymmdd: [string, string, string];
+};
+const {
+  props: { title, yyyymmdd },
+} = Astro;
+---
+
+<header>
+  <h1>{title}</h1>
+  <time datetime={yyyymmdd.join("-")}>{yyyymmdd.join("/")}</time>
+</header>
+
+<style>
+  header {
+    padding-block-end: var(--size-2);
+    border-block-end: var(--size-0) solid var(--border);
+  }
+  header h1 {
+    margin-block-end: var(--size-1);
+  }
+</style>
