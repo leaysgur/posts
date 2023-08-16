@@ -23,23 +23,19 @@ const {
   props: { entry },
 } = Astro;
 
-const v2RenderedEntry = await entry.render();
-
 const { title } = entry.data;
-const [yyyy, mm, dd] = pathV2!.split("/");
+const yyyymmdd = pathV2!.split("/").slice(0, 3);
+const { Content } = await entry.render();
 ---
 
 <RootLayout pageTitle={title}>
   <article>
-    <PostHeader 
-      title={title}
-      yyyymmdd={[yyyy,mm,dd]}
-    />
+    <PostHeader title={title} yyyymmdd={yyyymmdd} />
 
     <PostBodyV2
       editLink={`https://github.com/leaysgur/posts/edit/main/src/content/${entry.collection}/${entry.id}`}
     >
-      <v2RenderedEntry.Content />
+      <Content />
     </PostBodyV2>
   </article>
 </RootLayout>

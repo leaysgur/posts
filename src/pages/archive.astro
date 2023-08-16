@@ -22,9 +22,12 @@ const allPosts = [
 ].reverse();
 ---
 
-<RootLayout pageTitle="All posts">
-  <h1>All posts</h1>
-  <PostList>
-    {allPosts.map((post) => <PostListItem {...post} />)}
-  </PostList>
+<RootLayout pageTitle="すべての記事">
+  <main>
+    <h1>すべての記事</h1>
+    <p>{allPosts.length}件の記事があります。</p>
+    <PostList>
+      {allPosts.map((post) => <PostListItem {...post} />)}
+    </PostList>
+  </main>
 </RootLayout>

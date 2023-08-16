@@ -23,21 +23,17 @@ const {
   props: { entry },
 } = Astro;
 
-const v1HtmlString = entry.data.html;
-
 const { title } = entry.data;
-const [yyyy, mm, dd] = pathV1!.split("/");
+const yyyymmdd = pathV1!.split("/").slice(0, 3);
+const content = entry.data.html;
 ---
 
 <RootLayout pageTitle={title}>
   <article>
-    <PostHeader 
-      title={title}
-      yyyymmdd={[yyyy,mm,dd]}
-    />
+    <PostHeader title={title} yyyymmdd={yyyymmdd} />
 
     <PostBodyV1>
-      <Fragment set:html={v1HtmlString} />
+      <Fragment set:html={content} />
     </PostBodyV1>
   </article>
 </RootLayout>

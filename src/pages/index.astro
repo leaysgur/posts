@@ -8,8 +8,7 @@ import PostListItem from "../components/post-list/item.astro";
 const NUM_OF_RECENT_POSTS = 7;
 
 const [allPostsV1, allPostsV2] = await Promise.all([
-  // Latest posts-v1 post is 202308, there are sufficient posts to show
-  // In the near future, posts-v2 only will be used for recent posts
+  // In the near future, only posts-v2 posts will be used for recent
   getCollection("posts-v1", (p) => p.id.startsWith("2023")),
   getCollection("posts-v2"),
 ]);
@@ -29,8 +28,10 @@ const allPosts = [
 ---
 
 <RootLayout>
-  <h1>Recent posts</h1>
-  <PostList>
-    {allPosts.map((post) => <PostListItem {...post} />)}
-  </PostList>
+  <main>
+    <h1>最近の記事</h1>
+    <PostList>
+      {allPosts.map((post) => <PostListItem {...post} />)}
+    </PostList>
+  </main>
 </RootLayout>
