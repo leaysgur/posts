@@ -6,7 +6,7 @@ export type Props = {
 };
 const {
   props: { pageTitle },
-  url: { origin },
+  url: { href },
 } = Astro;
 
 const { PUBLIC_BASE_PATH, PUBLIC_SITE_TITLE } = import.meta.env;
@@ -21,10 +21,10 @@ const title = pageTitle
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="author" content="leaysgur" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={origin} />
+    <meta property="og:url" content={href} />
     <meta property="og:title" content={title} />
+    <link rel="canonical" href={href} />
     <!-- TODO: Remove later -->
     <meta name="robots" content="none" />
     <title>{title}</title>
