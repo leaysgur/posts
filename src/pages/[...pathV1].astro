@@ -9,7 +9,7 @@ import PostBodyV1 from "../components/post-body/v1.astro";
 export const getStaticPaths = async () => {
   const allPostsV1 = await getCollection("posts-v1");
 
-  return allPostsV1.slice(-4).map((post) => ({
+  return allPostsV1.map((post) => ({
     params: { pathV1: toPath(post.id) },
     props: { entry: post },
   }));
