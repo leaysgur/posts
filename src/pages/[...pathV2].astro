@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { toPath } from "../libs/utils";
+import { toPath, toDate } from "../libs/utils";
 import RootLayout from "../components/root-layout/index.astro";
 import PostHeader from "../components/post-header.astro";
 import PostBodyV2 from "../components/post-body/v2.astro";
@@ -24,13 +24,13 @@ const {
 } = Astro;
 
 const { title } = entry.data;
-const yyyymmdd = pathV2!.split("/").slice(0, 3);
+const date = toDate(pathV2!);
 const { Content } = await entry.render();
 ---
 
 <RootLayout pageTitle={title}>
   <article>
-    <PostHeader title={title} yyyymmdd={yyyymmdd} />
+    <PostHeader title={title} date={date} />
 
     <PostBodyV2
       editPath={`https://github.com/leaysgur/posts/edit/main/src/content/${entry.collection}/${entry.id}`}

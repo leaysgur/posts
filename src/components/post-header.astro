@@ -1,16 +1,27 @@
 ---
 export type Props = {
   title: string;
-  yyyymmdd: string[];
+  date: Date;
 };
 const {
-  props: { title, yyyymmdd },
+  props: { title, date },
 } = Astro;
 ---
 
 <header>
   <h1>{title}</h1>
-  <time datetime={yyyymmdd.join("-")}>{yyyymmdd.join("/")}</time>
+  <time datetime={date.toJSON()}
+    >{
+      date.toLocaleString("ja-JP", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      })
+    }</time
+  >
 </header>
 
 <style>

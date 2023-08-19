@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import { toPath } from "../libs/utils";
+import { toPath, toDate } from "../libs/utils";
 import RootLayout from "../components/root-layout/index.astro";
 import PostList from "../components/post-list/list.astro";
 import PostListItem from "../components/post-list/item.astro";
@@ -17,10 +17,12 @@ const allPosts = [
   ...allPostsV1.map((p) => ({
     path: toPath(p.id),
     title: p.data.title,
+    date: toDate(p.id),
   })),
   ...allPostsV2.map((p) => ({
     path: toPath(p.slug),
     title: p.data.title,
+    date: toDate(p.slug),
   })),
 ]
   .reverse()

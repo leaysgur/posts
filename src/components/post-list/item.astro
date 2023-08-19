@@ -2,12 +2,11 @@
 export type Props = {
   path: string;
   title: string;
+  date: Date;
 };
 const {
-  props: { path, title },
+  props: { path, title, date },
 } = Astro;
-
-const [yyyy, mm, dd] = path.split("/");
 ---
 
 <li>
@@ -15,7 +14,18 @@ const [yyyy, mm, dd] = path.split("/");
     <h2>
       <a href={path}>{title}</a>
     </h2>
-    <time datetime={`${yyyy}-${mm}-${dd}`}>{yyyy}/{mm}/{dd}</time>
+    <time datetime={date.toJSON()}
+      >{
+        date.toLocaleString("ja-JP", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        })
+      }</time
+    >
   </article>
 </li>
 

@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { toPath } from "../libs/utils";
+import { toDate, toPath } from "../libs/utils";
 import RootLayout from "../components/root-layout/index.astro";
 import PostHeader from "../components/post-header.astro";
 import PostBodyV1 from "../components/post-body/v1.astro";
@@ -24,13 +24,13 @@ const {
 } = Astro;
 
 const { title } = entry.data;
-const yyyymmdd = pathV1!.split("/").slice(0, 3);
+const date = toDate(pathV1!);
 const content = entry.data.html;
 ---
 
 <RootLayout pageTitle={title}>
   <article>
-    <PostHeader title={title} yyyymmdd={yyyymmdd} />
+    <PostHeader title={title} date={date} />
 
     <PostBodyV1>
       <Fragment set:html={content} />
