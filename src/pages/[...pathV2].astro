@@ -32,9 +32,7 @@ const { Content } = await entry.render();
   <article>
     <PostHeader title={title} date={date} />
 
-    <PostBodyV2
-      editPath={`https://github.com/leaysgur/posts/edit/main/src/content/${entry.collection}/${entry.id}`}
-    >
+    <PostBodyV2 editPath={`${entry.collection}/${entry.id}`}>
       <Content />
     </PostBodyV2>
   </article>
