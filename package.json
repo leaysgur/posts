@@ -6,17 +6,17 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "format": "prettier --write . --plugin=prettier-plugin-astro"
+    "format": "prettier --write --plugin=prettier-plugin-astro ."
   },
   "dependencies": {
-    "@astrojs/rss": "^2.4.4",
-    "astro": "^2.10.3",
-    "shikiji": "^0.4.0"
+    "shikiji": "^0.6.1"
   },
   "devDependencies": {
+    "@astrojs/rss": "^2.4.4",
     "@astrojs/ts-plugin": "^1.1.1",
-    "@types/node": "^20.4.9",
-    "prettier": "^3.0.1",
-    "prettier-plugin-astro": "^0.11.0"
+    "@types/node": "^20.5.1",
+    "astro": "^3.0.0-beta.4",
+    "prettier": "^3.0.2",
+    "prettier-plugin-astro": "^0.11.1"
   }
 }
