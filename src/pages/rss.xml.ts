@@ -5,7 +5,7 @@ import type { APIRoute } from "astro";
 
 const { PUBLIC_SITE_TITLE, PUBLIC_SITE_DESCRIPTION } = import.meta.env;
 
-export const get: APIRoute = async ({ site }) => {
+export const GET: APIRoute = async ({ site }) => {
   const [allPostsV1, allPostsV2] = await Promise.all([
     getCollection("posts-v1"),
     getCollection("posts-v2"),
