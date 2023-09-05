@@ -78,17 +78,18 @@ const { PUBLIC_SHIKI_THEME } = import.meta.env;
     const highlight = async (targetEl: Element) => {
       const { getHighlighter } = await import("shikiji");
       const highlighter = await getHighlighter({
-        // @ts-expect-error: Type 'string' is not assignable
         themes: [shikiTheme],
-        langs: [],
       });
 
-      let options = {};
+      let options = {
+        theme: shikiTheme,
+        lang: "",
+      };
       try {
         // @ts-expect-error: Property 'dataset' does not exist on type 'Element'.
         const lang = targetEl.dataset.lang || null;
         await highlighter.loadLanguage(lang);
-        options = { lang };
+        options.lang = lang;
       } catch {}
 
       targetEl.outerHTML = highlighter.codeToHtml(
