@@ -25,7 +25,6 @@
   --text-2: #383c52;
   --links: #00598b;
   --code-bg: #dfe3ef;
-  --code-fg: #51545d;
   --focus: #7bc1ce;
   --border: #4f6476;
   color-scheme: light;
@@ -37,7 +36,6 @@
     --text-2: #edf3f6;
     --links: #77c1ce;
     --code-bg: #51545d;
-    --code-fg: #597a78;
     --focus: #236997;
     --border: #1d6268;
     color-scheme: dark;
@@ -138,9 +136,8 @@
 :where(:not(pre) > code) {
   padding-block: var(--size-1);
   padding-inline: var(--size-2);
-  border-radius: var(--size-2);
+  border-radius: var(--size-1);
   background: var(--code-bg);
-  color: var(--code);
 }
 
 :where(blockquote) {
