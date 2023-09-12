@@ -6,10 +6,12 @@ export type Props = {
 };
 const {
   props: { pageTitle },
-  url: { href },
+  url: { origin, href },
 } = Astro;
 
 const { PUBLIC_BASE_PATH, PUBLIC_SITE_TITLE } = import.meta.env;
+
+const ASSETS_FULL_PATH = origin + PUBLIC_BASE_PATH;
 
 const title = pageTitle
   ? `${pageTitle} | ${PUBLIC_SITE_TITLE}`
@@ -25,11 +27,12 @@ const title = pageTitle
     <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={href} />
+    <meta property="og:image" content={ASSETS_FULL_PATH + "ogp.png"} />
     <link rel="canonical" href={href} />
     <link
       rel="icon"
       type="image/svg+xml"
-      href={PUBLIC_BASE_PATH + "favicon.svg"}
+      href={ASSETS_FULL_PATH + "favicon.svg"}
     />
   </head>
   <body>
