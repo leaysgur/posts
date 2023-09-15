@@ -7,7 +7,7 @@ import PostListItem from "../components/post-list/item.astro";
 
 const NUM_OF_RECENT_POSTS = 10;
 
-const allPostsV2 = await getCollection("posts-v2")
+const allPostsV2 = await getCollection("posts-v2");
 const recentPosts = allPostsV2
   .slice(-1 * NUM_OF_RECENT_POSTS)
   .map((p) => ({
