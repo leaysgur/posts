@@ -76,10 +76,10 @@ const { PUBLIC_SHIKI_THEME } = import.meta.env;
         ?.getAttribute("data-shiki-theme") ?? "";
 
     const highlight = async (targetEl: Element) => {
-      const { getHighlighter } = await import("shikiji");
-      const highlighter = await getHighlighter({
-        themes: [shikiTheme],
-      });
+      // @ts-ignore: Use CDN version for faster build
+      const { getHighlighter } = await import("https://esm.sh/shikiji");
+      // const { getHighlighter } = await import("shikiji");
+      const highlighter = await getHighlighter({ themes: [shikiTheme] });
 
       let options = {
         theme: shikiTheme,
