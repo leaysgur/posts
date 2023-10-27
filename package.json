@@ -12,10 +12,10 @@
   "devDependencies": {
     "@astrojs/rss": "^3.0.0",
     "@astrojs/ts-plugin": "^1.2.0",
-    "@types/node": "^20.8.5",
-    "astro": "^3.3.0",
+    "@types/node": "^20.8.9",
+    "astro": "^3.4.0",
     "prettier": "^3.0.3",
-    "prettier-plugin-astro": "^0.12.0",
+    "prettier-plugin-astro": "^0.12.1",
     "typescript": "^5.2.2"
   }
 }
