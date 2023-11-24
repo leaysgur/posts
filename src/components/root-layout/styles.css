@@ -13,7 +13,6 @@
   --font-size-3: 1.25rem;
   --font-size-4: 1.5rem;
   --font-size-5: 2rem;
-  --font-size-6: 2.5rem;
   --font-lineheight-0: 1.1;
   --font-lineheight-1: 1.25;
   --font-lineheight-2: 1.375;
@@ -99,7 +98,7 @@
 }
 
 :where(h1, h2, h3, h4, h5, h6) {
-  line-height: var(--font-lineheight-1);
+  line-height: var(--font-lineheight-0);
 }
 :where(h1, h2, h3, h4, h5, h6, strong) {
   color: var(--text-2);
@@ -107,15 +106,19 @@
 
 :where(h1) {
   font-size: var(--font-size-5);
+  font-weight: 600;
 }
 :where(h2) {
   font-size: var(--font-size-4);
+  font-weight: 500;
 }
 :where(h3) {
   font-size: var(--font-size-3);
+  font-weight: 500;
 }
 :where(h4, h5, h6) {
   font-size: var(--font-size-2);
+  font-weight: 400;
 }
 
 :where(pre, code) {
@@ -124,7 +127,7 @@
 }
 
 :where(pre) {
-  line-height: var(--font-lineheight-0);
+  line-height: var(--font-lineheight-1);
   white-space: pre;
   overflow-x: auto;
   padding-block: var(--size-2);
@@ -134,7 +137,7 @@
 }
 
 :where(:not(pre) > code) {
-  padding-block: var(--size-1);
+  padding-block: var(--size-0);
   padding-inline: var(--size-2);
   border-radius: var(--size-1);
   background: var(--code-bg);
