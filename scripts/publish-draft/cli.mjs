@@ -1,10 +1,16 @@
 // @ts-check
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, copyFile, unlink } from "node:fs/promises";
 
 const CONTENT_DIR = "./src/content/posts-v2";
 
-const now = new Date();
+const [, , draftPath] = process.argv;
 
+if (!draftPath) {
+  console.log("🚨", "Draft path is required!");
+  process.exit(1);
+}
+
+const now = new Date();
 const yyyymmdd = now
   .toLocaleDateString("ja-JP", {
     year: "numeric",
@@ -22,17 +28,11 @@ const hhmmss = now
   })
   .replaceAll(":", "");
 
-await mkdir(`${CONTENT_DIR}/${yyyymm}/${dd}`, { recursive: true });
-await writeFile(
-  `${CONTENT_DIR}/${yyyymm}/${dd}/${hhmmss}.md`,
-  `
----
-title: ...
----
+const postPath = `${CONTENT_DIR}/${yyyymm}/${dd}/${hhmmss}.md`;
 
-...
-`.trim(),
-);
+await mkdir(`${CONTENT_DIR}/${yyyymm}/${dd}`, { recursive: true });
+await copyFile(draftPath, postPath);
+await unlink(draftPath);
 
 console.log("🧊", "New post generated!");
-console.log(`${CONTENT_DIR}/${yyyymm}/${dd}/${hhmmss}.md`);
+console.log(postPath);

@@ -3,7 +3,6 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "new": "node ./scripts/add-new-post/cli.mjs",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
