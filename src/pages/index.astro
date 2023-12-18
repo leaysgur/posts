@@ -19,10 +19,8 @@ const recentPosts = allPostsV2
 ---
 
 <RootLayout>
-  <main>
-    <h1>最近の記事</h1>
-    <PostList>
-      {recentPosts.map((post) => <PostListItem {...post} />)}
-    </PostList>
-  </main>
+  <h1>最近の記事</h1>
+  <PostList>
+    {recentPosts.map((post) => <PostListItem {...post} />)}
+  </PostList>
 </RootLayout>

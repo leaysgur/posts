@@ -156,3 +156,12 @@
 :where(ol, ul) {
   padding-inline-start: var(--size-3);
 }
+
+:where(details) {
+  padding-inline: var(--size-3);
+  padding-block: var(--size-2);
+}
+
+:where(details[open] > summary) {
+  margin-block-end: var(--size-2);
+}

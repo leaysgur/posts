@@ -10,6 +10,8 @@ const [allPostsV1, allPostsV2] = await Promise.all([
   getCollection("posts-v2"),
 ]);
 
+// 1. Order v1-old > v1-new > v2-old > v2-new
+// 2. Reverse at once
 const allPosts = [
   ...allPostsV1.map((p) => ({
     path: toPath(p.id),
@@ -22,14 +24,39 @@ const allPosts = [
     date: toDate(p.slug),
   })),
 ].reverse();
+
+type PostsGroup = {
+  year: number;
+  posts: typeof allPosts;
+};
+
+const grouped = [];
+for (const post of allPosts) {
+  const year = post.date.getFullYear();
+  if (grouped.at(-1)?.year !== year) {
+    const group: PostsGroup = { year, posts: [] };
+    grouped.push(group);
+  }
+
+  grouped.at(-1)!.posts.push(post);
+}
 ---
 
 <RootLayout pageTitle="すべての記事">
-  <main>
-    <h1>すべての記事</h1>
-    <p>{allPosts.length}件の記事があります。</p>
-    <PostList>
-      {allPosts.map((post) => <PostListItem {...post} />)}
-    </PostList>
-  </main>
+  <h1>すべての記事</h1>
+  <p>{allPosts.length}件の記事があります。</p>
+  {
+    grouped.map(({ year, posts }, idx) => (
+      <details open={idx === 0}>
+        <summary>
+          {year}年({posts.length}記事)
+        </summary>
+        <PostList>
+          {posts.map((post) => (
+            <PostListItem {...post} />
+          ))}
+        </PostList>
+      </details>
+    ))
+  }
 </RootLayout>
