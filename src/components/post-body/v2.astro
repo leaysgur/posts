@@ -24,6 +24,10 @@ const {
   .v2-post-body {
     display: contents;
   }
+  :global(.v2-post-body h2) {
+    padding-block-start: var(--size-4);
+    border-block-start: var(--size-0) solid var(--border);
+  }
   :global(.v2-post-body h2::before) {
     content: "## ";
   }

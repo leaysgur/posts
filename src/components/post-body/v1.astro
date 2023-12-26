@@ -20,6 +20,10 @@ const { PUBLIC_SHIKI_THEME } = import.meta.env;
   :global(.v1-post-body br) {
     display: none;
   }
+  :global(.v1-post-body h3) {
+    padding-block-start: var(--size-4);
+    border-block-start: var(--size-0) solid var(--border);
+  }
   /* v1-posts use h3-h5 headings, 1 lv smaller than v2-posts(h2-h4) */
   :global(.v1-post-body h3) {
     font-size: var(--font-size-4);
