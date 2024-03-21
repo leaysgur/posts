@@ -1,6 +1,5 @@
-/** Inspired: https://github.com/argyleink/open-props/blob/main/src/extra/normalize.src.css */
-
 :root {
+  /* Inspired: https://github.com/argyleink/open-props/blob/main/src/extra/normalize.src.css */
   --size-0: 0.01rem;
   --size-1: 0.125rem;
   --size-2: 0.5rem;
@@ -16,27 +15,49 @@
   --font-lineheight-0: 1.1;
   --font-lineheight-1: 1.25;
   --font-lineheight-2: 1.375;
+
+  /* Nord: https://github.com/nordtheme/nord/blob/1cef71605416a222e57225b544540ce0fcec18d4/src/nord.css */
+  /* Polar Night */
+  --nord00: #2e3440;
+  --nord01: #3b4252;
+  --nord02: #434c5e;
+  --nord03: #4c566a;
+  /* Snow Storm */
+  --nord04: #d8dee9;
+  --nord05: #e5e9f0;
+  --nord06: #eceff4;
+  /* Frost */
+  --nord07: #8fbcbb;
+  --nord08: #88c0d0;
+  --nord09: #81a1c1;
+  --nord10: #5e81ac;
+  /* Aurora */
+  --nord11: #bf616a;
+  --nord12: #d08770;
+  --nord13: #ebcb8b;
+  --nord14: #a3be8c;
+  --nord15: #b48ead;
 }
 
 :root {
-  --background: #fdfeff;
-  --text-1: #2d3140;
-  --text-2: #383c52;
-  --links: #00598b;
-  --code-bg: #dfe3ef;
-  --focus: #7bc1ce;
-  --border: #4f6476;
+  --background: var(--nord06);
+  --text-1: var(--nord03);
+  --text-2: var(--nord02);
+  --links: var(--nord10);
+  --code-bg: var(--nord04);
+  --focus: var(--nord07);
+  --border: var(--nord09);
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #2b2e3b;
-    --text-1: #ecf5f9;
-    --text-2: #edf3f6;
-    --links: #77c1ce;
-    --code-bg: #51545d;
-    --focus: #236997;
-    --border: #1d6268;
+    --background: var(--nord01);
+    --text-1: var(--nord06);
+    --text-2: var(--nord05);
+    --links: var(--nord09);
+    --code-bg: var(--nord00);
+    --focus: var(--nord08);
+    --border: var(--nord10);
     color-scheme: dark;
   }
 }
