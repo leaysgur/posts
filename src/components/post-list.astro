@@ -1,0 +1,49 @@
+---
+export type Props = {
+  items: {
+    path: string;
+    title: string;
+    date: Date;
+  }[];
+};
+const {
+  props: { items },
+} = Astro;
+
+const { PUBLIC_BASE_PATH } = import.meta.env;
+---
+
+<ul>
+  {
+    items.map(({ path, title, date }) => (
+      <li>
+        <article>
+          <h2>
+            <a href={PUBLIC_BASE_PATH + path}>{title}</a>
+          </h2>
+          <time datetime={date.toJSON()}>
+            {date.toLocaleString("ja-JP", {
+              year: "numeric",
+              month: "2-digit",
+              day: "2-digit",
+              hour: "2-digit",
+              minute: "2-digit",
+              second: "2-digit",
+              timeZone: "Asia/Tokyo",
+            })}
+          </time>
+        </article>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-3);
+    list-style-type: none;
+    padding-inline-start: 0;
+  }
+</style>

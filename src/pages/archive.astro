@@ -2,8 +2,7 @@
 import { getCollection } from "astro:content";
 import { toPath, toDate } from "../libs/utils";
 import RootLayout from "../components/root-layout/index.astro";
-import PostList from "../components/post-list/list.astro";
-import PostListItem from "../components/post-list/item.astro";
+import PostList from "../components/post-list.astro";
 
 const [allPostsV1, allPostsV2] = await Promise.all([
   getCollection("posts-v1"),
@@ -51,11 +50,7 @@ for (const post of allPosts) {
         <summary>
           {year}年({posts.length}記事)
         </summary>
-        <PostList>
-          {posts.map((post) => (
-            <PostListItem {...post} />
-          ))}
-        </PostList>
+        <PostList items={posts} />
       </details>
     ))
   }

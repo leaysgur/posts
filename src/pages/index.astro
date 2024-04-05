@@ -2,8 +2,7 @@
 import { getCollection } from "astro:content";
 import { toPath, toDate } from "../libs/utils";
 import RootLayout from "../components/root-layout/index.astro";
-import PostList from "../components/post-list/list.astro";
-import PostListItem from "../components/post-list/item.astro";
+import PostList from "../components/post-list.astro";
 
 const NUM_OF_RECENT_POSTS = 10;
 
@@ -20,7 +19,5 @@ const recentPosts = allPostsV2
 
 <RootLayout>
   <h1>最近の記事</h1>
-  <PostList>
-    {recentPosts.map((post) => <PostListItem {...post} />)}
-  </PostList>
+  <PostList items={recentPosts} />
 </RootLayout>
