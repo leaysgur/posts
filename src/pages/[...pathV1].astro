@@ -1,10 +1,11 @@
 ---
 import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
 import { toDate, toPath } from "../libs/utils";
 import RootLayout from "../components/root-layout/index.astro";
 import PostHeader from "../components/post-header.astro";
 import PostBodyV1 from "../components/post-body/v1.astro";
+import PostFooter from "../components/post-footer.astro";
+import type { CollectionEntry } from "astro:content";
 
 export const getStaticPaths = async () => {
   const allPostsV1 = await getCollection("posts-v1");
@@ -35,5 +36,12 @@ const content = entry.data.html;
     <PostBodyV1>
       <Fragment set:html={content} />
     </PostBodyV1>
+
+    <PostFooter>
+      <p>
+        ⚠️
+        はてなブログ時代の記事からエクスポートされたページのため、一部の表示に不具合があるかもしれません。
+      </p>
+    </PostFooter>
   </article>
 </RootLayout>

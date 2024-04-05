@@ -4,13 +4,6 @@ const { PUBLIC_SHIKI_THEME } = import.meta.env;
 
 <div data-post-body data-shiki-theme={PUBLIC_SHIKI_THEME} class="v1-post-body">
   <slot />
-
-  <footer>
-    <p>
-      ⚠️ <a href="https://lealog.hateblo.jp/" target="_blank">はてなブログ</a
-      >時代の記事からエクスポートされたページのため、一部の表示に不具合があるかもしれません。
-    </p>
-  </footer>
 </div>
 
 <style>
@@ -46,11 +39,6 @@ const { PUBLIC_SHIKI_THEME } = import.meta.env;
   }
   :global(.v1-post-body h5) {
     font-size: var(--font-size-2);
-  }
-
-  footer {
-    border-block-start: var(--size-0) solid var(--border);
-    font-size: var(--font-size-0);
   }
 </style>
 

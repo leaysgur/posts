@@ -1,10 +1,11 @@
 ---
 import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
 import { toPath, toDate } from "../libs/utils";
 import RootLayout from "../components/root-layout/index.astro";
 import PostHeader from "../components/post-header.astro";
 import PostBodyV2 from "../components/post-body/v2.astro";
+import PostFooter from "../components/post-footer.astro";
+import type { CollectionEntry } from "astro:content";
 
 export const getStaticPaths = async () => {
   const allPostsV2 = await getCollection("posts-v2");
@@ -32,8 +33,17 @@ const { Content } = await entry.render();
   <article>
     <PostHeader title={title} date={date} />
 
-    <PostBodyV2 editPath={`${entry.collection}/${entry.id}`}>
+    <PostBodyV2>
       <Content />
     </PostBodyV2>
+
+    <PostFooter>
+      <p>
+        📝 <a
+          href={`https://github.com/leaysgur/posts/edit/main/src/content/${entry.collection}/${entry.id}`}
+          target="_blank">GitHubで編集</a
+        >
+      </p>
+    </PostFooter>
   </article>
 </RootLayout>

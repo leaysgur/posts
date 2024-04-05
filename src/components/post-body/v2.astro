@@ -1,23 +1,9 @@
 ---
-export type Props = {
-  editPath: string;
-};
-const {
-  props: { editPath },
-} = Astro;
+
 ---
 
 <div class="v2-post-body">
   <slot />
-
-  <footer>
-    <p>
-      📝 <a
-        href={`https://github.com/leaysgur/posts/edit/main/src/content/${editPath}`}
-        target="_blank">GitHubで編集</a
-      >
-    </p>
-  </footer>
 </div>
 
 <style>
@@ -38,10 +24,5 @@ const {
   }
   :global(.v2-post-body h4::before) {
     content: "#### ";
-  }
-
-  footer {
-    border-block-start: var(--size-0) solid var(--border);
-    font-size: var(--font-size-0);
   }
 </style>
