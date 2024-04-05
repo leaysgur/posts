@@ -17,12 +17,25 @@ const { PUBLIC_SHIKI_THEME } = import.meta.env;
   .v1-post-body {
     display: contents;
   }
+
+  :global(.v1-post-body h3) {
+    padding-block-start: var(--size-5);
+    padding-block-end: var(--size-2);
+    border-block-end: var(--size-0) solid var(--border);
+  }
+  :global(.v1-post-body h3::before) {
+    content: "## ";
+  }
+  :global(.v1-post-body h4::before) {
+    content: "### ";
+  }
+  :global(.v1-post-body h5::before) {
+    content: "#### ";
+  }
+
+  /* v1, hatena blog uses <br>... */
   :global(.v1-post-body br) {
     display: none;
-  }
-  :global(.v1-post-body h3) {
-    padding-block-start: var(--size-4);
-    border-block-start: var(--size-0) solid var(--border);
   }
   /* v1-posts use h3-h5 headings, 1 lv smaller than v2-posts(h2-h4) */
   :global(.v1-post-body h3) {
@@ -33,15 +46,6 @@ const { PUBLIC_SHIKI_THEME } = import.meta.env;
   }
   :global(.v1-post-body h5) {
     font-size: var(--font-size-2);
-  }
-  :global(.v1-post-body h3::before) {
-    content: "## ";
-  }
-  :global(.v1-post-body h4::before) {
-    content: "### ";
-  }
-  :global(.v1-post-body h5::before) {
-    content: "#### ";
   }
 
   footer {
