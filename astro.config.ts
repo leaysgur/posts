@@ -10,6 +10,8 @@ const { PUBLIC_BASE_PATH, PUBLIC_SHIKI_THEME } = loadEnv(
 export default defineConfig({
   site: "https://leaysgur.github.io",
   base: PUBLIC_BASE_PATH ?? "",
+  // GitHub Pages requires trailing slash w/ `format: directory`
+  build: { format: "file" },
   // @ts-ignore: type string is too loose
   markdown: { shikiConfig: { theme: PUBLIC_SHIKI_THEME ?? "" } },
 });
