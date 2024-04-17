@@ -16,6 +16,9 @@ const { PUBLIC_SHIKI_THEME } = import.meta.env;
     padding-block-end: var(--size-2);
     border-block-end: var(--size-0) solid var(--border);
   }
+  :global(.v2-post-body :is(h3, h4, h5)::before) {
+    color: var(--nord04);
+  }
   :global(.v1-post-body h3::before) {
     content: "## ";
   }

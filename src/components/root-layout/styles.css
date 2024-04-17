@@ -54,9 +54,9 @@
     --background: var(--nord01);
     --text-1: var(--nord06);
     --text-2: var(--nord05);
-    --links: var(--nord09);
+    --links: var(--nord08);
     --code-bg: var(--nord00);
-    --focus: var(--nord08);
+    --focus: var(--nord09);
     --border: var(--nord10);
     color-scheme: dark;
   }
