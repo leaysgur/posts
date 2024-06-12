@@ -9,12 +9,12 @@
     "format": "prettier --write --plugin=prettier-plugin-astro ."
   },
   "devDependencies": {
-    "@astrojs/rss": "^4.0.5",
-    "@astrojs/ts-plugin": "^1.6.1",
-    "@types/node": "^20.12.4",
-    "astro": "^4.5.16",
-    "prettier": "^3.2.5",
-    "prettier-plugin-astro": "^0.13.0",
-    "typescript": "^5.4.4"
+    "@astrojs/rss": "^4.0.6",
+    "@astrojs/ts-plugin": "^1.8.0",
+    "@types/node": "^20.14.2",
+    "astro": "^4.10.1",
+    "prettier": "^3.3.2",
+    "prettier-plugin-astro": "^0.14.0",
+    "typescript": "^5.4.5"
   }
 }
