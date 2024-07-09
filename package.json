@@ -10,11 +10,11 @@
   },
   "devDependencies": {
     "@astrojs/rss": "^4.0.7",
-    "@astrojs/ts-plugin": "^1.8.0",
-    "@types/node": "^20.14.8",
-    "astro": "^4.11.1",
+    "@astrojs/ts-plugin": "^1.9.0",
+    "@types/node": "^20.14.10",
+    "astro": "^4.11.5",
     "prettier": "^3.3.2",
     "prettier-plugin-astro": "^0.14.0",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.3"
   }
 }
