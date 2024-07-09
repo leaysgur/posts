@@ -3,9 +3,13 @@ import { getCollection } from "astro:content";
 import { toPath, toDate } from "../libs/utils";
 import type { APIRoute } from "astro";
 
-const { PUBLIC_SITE_TITLE, PUBLIC_SITE_DESCRIPTION } = import.meta.env;
+const { PUBLIC_SITE_TITLE, PUBLIC_SITE_DESCRIPTION, PUBLIC_BASE_PATH } =
+  import.meta.env;
 
 export const GET: APIRoute = async ({ site }) => {
+  const siteUrl = new URL(site!);
+  siteUrl.pathname = PUBLIC_BASE_PATH;
+
   const [allPostsV1, allPostsV2] = await Promise.all([
     getCollection("posts-v1"),
     getCollection("posts-v2"),
@@ -27,7 +31,7 @@ export const GET: APIRoute = async ({ site }) => {
   return rss({
     title: PUBLIC_SITE_TITLE,
     description: PUBLIC_SITE_DESCRIPTION,
-    site: site!,
+    site: siteUrl,
     items: allPosts,
   });
 };
