@@ -19,7 +19,7 @@ const { PUBLIC_BASE_PATH } = import.meta.env;
       <li>
         <article>
           <h2>
-            <a href={PUBLIC_BASE_PATH + path}>{title}</a>
+            <a href={PUBLIC_BASE_PATH + path + "/"}>{title}</a>
           </h2>
           <time datetime={date.toJSON()}>
             {date.toLocaleString("ja-JP", {
