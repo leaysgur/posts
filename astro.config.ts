@@ -14,4 +14,7 @@ export default defineConfig({
   trailingSlash: "always",
   // @ts-ignore: type string is too loose
   markdown: { shikiConfig: { theme: PUBLIC_SHIKI_THEME ?? "" } },
+  experimental: {
+    contentLayer: true,
+  }
 });
