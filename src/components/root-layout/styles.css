@@ -155,7 +155,6 @@
   padding-block: var(--size-2);
   padding-inline: var(--size-2);
   background: var(--code-bg);
-  border: var(--size-0) dotted var(--border);
 }
 
 :where(:not(pre) > code) {
