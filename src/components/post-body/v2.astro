@@ -11,22 +11,17 @@
     display: contents;
   }
 
-  :global(.v2-post-body h2) {
-    padding-block-start: var(--size-5);
+  :global(.v2-post-body :is(h2, h3, h4)) {
     padding-block-end: var(--size-2);
     border-block-end: var(--size-0) solid var(--border);
   }
-  :global(.v2-post-body :is(h2, h3, h4)::before) {
-    color: var(--text-2);
-    opacity: 0.8;
+  :global(.v2-post-body h2) {
+    padding-block-start: var(--size-5);
   }
-  :global(.v2-post-body h2::before) {
-    content: "## ";
+  :global(.v2-post-body h3) {
+    padding-block-start: var(--size-3);
   }
-  :global(.v2-post-body h3::before) {
-    content: "### ";
-  }
-  :global(.v2-post-body h4::before) {
-    content: "#### ";
+  :global(.v2-post-body h4) {
+    padding-block-start: var(--size-1);
   }
 </style>

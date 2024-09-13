@@ -11,23 +11,18 @@ const { PUBLIC_SHIKI_THEME } = import.meta.env;
     display: contents;
   }
 
-  :global(.v1-post-body h3) {
-    padding-block-start: var(--size-5);
+  :global(.v1-post-body :is(h3, h4, h5)) {
     padding-block-end: var(--size-2);
     border-block-end: var(--size-0) solid var(--border);
   }
-  :global(.v2-post-body :is(h3, h4, h5)::before) {
-    color: var(--text-2);
-    opacity: 0.8;
+  :global(.v1-post-body h3) {
+    padding-block-start: var(--size-5);
   }
-  :global(.v1-post-body h3::before) {
-    content: "## ";
+  :global(.v2-post-body h4) {
+    padding-block-start: var(--size-3);
   }
-  :global(.v1-post-body h4::before) {
-    content: "### ";
-  }
-  :global(.v1-post-body h5::before) {
-    content: "#### ";
+  :global(.v2-post-body h5) {
+    padding-block-start: var(--size-1);
   }
 
   /* v1, hatena blog uses <br>... */
