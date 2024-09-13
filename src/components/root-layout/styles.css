@@ -84,12 +84,10 @@
 }
 
 :where(body) {
-  min-block-size: 100%;
-  max-inline-size: 1000px;
-  margin: 0;
+  max-inline-size: clamp(320px, 100%, 1000px);
+  margin: auto;
   padding-inline: var(--size-3);
-  padding-block: var(--size-3);
-  margin-inline: auto;
+  padding-block: var(--size-2);
   word-break: break-word;
 }
 
