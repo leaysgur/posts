@@ -1,5 +1,5 @@
 :root {
-  /* Inspired: https://github.com/argyleink/open-props/blob/main/src/extra/normalize.src.css */
+  /* Inspired by https://github.com/argyleink/open-props/blob/main/src/extra/normalize.src.css */
   --size-0: 0.01rem;
   --size-1: 0.125rem;
   --size-2: 0.5rem;
@@ -16,7 +16,7 @@
   --font-lineheight-1: 1.25;
   --font-lineheight-2: 1.375;
 
-  /* Nord: https://github.com/nordtheme/nord/blob/1cef71605416a222e57225b544540ce0fcec18d4/src/nord.css */
+  /* Copied from https://github.com/nordtheme/nord/blob/1cef71605416a222e57225b544540ce0fcec18d4/src/nord.css */
   /* Polar Night */
   --nord00: #2e3440;
   --nord01: #3b4252;

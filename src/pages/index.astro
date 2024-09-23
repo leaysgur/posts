@@ -4,11 +4,12 @@ import { toPath, toDate } from "../libs/utils";
 import RootLayout from "../components/root-layout/index.astro";
 import PostList from "../components/post-list.astro";
 
-const NUM_OF_RECENT_POSTS = 10;
+const RECENT_90_DAYS = Date.now() - 90 * 24 * 60 * 60 * 1000;
 
-const allPostsV2 = await getCollection("posts-v2");
+const allPostsV2 = await getCollection("posts-v2", (p) =>
+  RECENT_90_DAYS < toDate(p.slug).getTime() ? p : null,
+);
 const recentPosts = allPostsV2
-  .slice(-1 * NUM_OF_RECENT_POSTS)
   .map((p) => ({
     path: toPath(p.slug),
     title: p.data.title,
@@ -18,6 +19,6 @@ const recentPosts = allPostsV2
 ---
 
 <RootLayout>
-  <h1>最近の記事</h1>
+  <h1>Recent Posts</h1>
   <PostList items={recentPosts} />
 </RootLayout>

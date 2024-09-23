@@ -9,7 +9,7 @@ const [allPostsV1, allPostsV2] = await Promise.all([
   getCollection("posts-v2"),
 ]);
 
-// 1. Order v1-old > v1-new > v2-old > v2-new
+// 1. Sort to [v1-old .. v1-new .. v2-old .. v2-new]
 // 2. Reverse at once
 const allPosts = [
   ...allPostsV1.map((p) => ({
@@ -41,14 +41,14 @@ for (const post of allPosts) {
 }
 ---
 
-<RootLayout pageTitle="すべての記事">
-  <h1>すべての記事</h1>
-  <p>{allPosts.length}件の記事があります。</p>
+<RootLayout pageTitle="All Posts">
+  <h1>All Posts</h1>
+  <p>There are {allPosts.length} posts.</p>
   {
     grouped.map(({ year, posts }, idx) => (
       <details open={idx === 0}>
         <summary>
-          {year}年({posts.length}記事)
+          {year}: {posts.length} posts
         </summary>
         <PostList items={posts} />
       </details>
