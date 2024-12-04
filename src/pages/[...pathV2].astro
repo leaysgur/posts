@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import { toPath, toDate } from "../libs/utils";
 import RootLayout from "../components/root-layout/index.astro";
 import PostHeader from "../components/post-header.astro";
@@ -11,7 +11,7 @@ export const getStaticPaths = async () => {
   const allPostsV2 = await getCollection("posts-v2");
 
   return allPostsV2.map((post) => ({
-    params: { pathV2: toPath(post.slug) },
+    params: { pathV2: toPath(post.id) },
     props: { entry: post },
   }));
 };
@@ -25,8 +25,8 @@ const {
 } = Astro;
 
 const { title } = entry.data;
-const date = toDate(pathV2!);
-const { Content } = await entry.render();
+const date = toDate(pathV2);
+const { Content } = await render(entry);
 ---
 
 <RootLayout pageTitle={title}>

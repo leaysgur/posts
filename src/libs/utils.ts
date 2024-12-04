@@ -1,8 +1,7 @@
-// NOTE: `idOrSlug` is `yyyymm/dd/hhmmss`.
-// `post-v1.id` and `post-v2.slug` are same format.
+// NOTE: `id` format is `yyyymm/dd/hhmmss`.
 
-export const toPath = (idOrSlug: string) => {
-  const yyyymmddhhmmss = idOrSlug.replaceAll("/", "");
+export const toPath = (id: string) => {
+  const yyyymmddhhmmss = id.replaceAll("/", "");
 
   return [
     yyyymmddhhmmss.slice(0, 4), // yyyy
@@ -12,8 +11,8 @@ export const toPath = (idOrSlug: string) => {
   ].join("/");
 };
 
-export const toDate = (idOrSlug: string) => {
-  const yyyymmddhhmmss = idOrSlug.replaceAll("/", "");
+export const toDate = (id: string) => {
+  const yyyymmddhhmmss = id.replaceAll("/", "");
   const [yyyy, mm, dd, hh, mm_, ss] = [
     yyyymmddhhmmss.slice(0, 4),
     yyyymmddhhmmss.slice(4, 6),
@@ -23,6 +22,6 @@ export const toDate = (idOrSlug: string) => {
     yyyymmddhhmmss.slice(12, 14),
   ];
 
-  // `idOrSlug` is JST date string, add timezone offset
+  // `id` is JST date string, add timezone offset
   return new Date(`${yyyy}-${mm}-${dd}T${hh}:${mm_}:${ss}+09:00`);
 };

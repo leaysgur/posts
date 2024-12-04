@@ -9,20 +9,12 @@ const [allPostsV1, allPostsV2] = await Promise.all([
   getCollection("posts-v2"),
 ]);
 
-// 1. Sort to [v1-old .. v1-new .. v2-old .. v2-new]
-// 2. Reverse at once
-const allPosts = [
-  ...allPostsV1.map((p) => ({
-    path: toPath(p.id),
-    title: p.data.title,
-    date: toDate(p.id),
-  })),
-  ...allPostsV2.map((p) => ({
-    path: toPath(p.slug),
-    title: p.data.title,
-    date: toDate(p.slug),
-  })),
-].reverse();
+const allPosts = [...allPostsV1, ...allPostsV2].map((p) => ({
+  path: toPath(p.id),
+  title: p.data.title,
+  date: toDate(p.id),
+}));
+allPosts.sort((a, b) => b.path.localeCompare(a.path));
 
 type PostsGroup = {
   year: number;

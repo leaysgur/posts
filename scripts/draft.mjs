@@ -3,7 +3,7 @@
 import { mkdir, writeFile, copyFile, unlink } from "node:fs/promises";
 
 const DRAFTS_DIR = "./drafts";
-const CONTENT_DIR = "./src/content/posts-v2";
+const CONTENT_DIR = "./content/posts-v2";
 const DRAFT_TEMPLATE = `
 ---
 title: ...

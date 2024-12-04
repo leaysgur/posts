@@ -35,6 +35,12 @@ const title = pageTitle
       type="image/svg+xml"
       href={ASSETS_FULL_PATH + "favicon.svg"}
     />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title=`${PUBLIC_SITE_TITLE}`
+      href={new URL("rss.xml", ASSETS_FULL_PATH)}
+    />
   </head>
   <body>
     <header>

@@ -7,15 +7,14 @@ import PostList from "../components/post-list.astro";
 const RECENT_90_DAYS = Date.now() - 90 * 24 * 60 * 60 * 1000;
 
 const allPostsV2 = await getCollection("posts-v2", (p) =>
-  RECENT_90_DAYS < toDate(p.slug).getTime() ? p : null,
+  RECENT_90_DAYS < toDate(p.id).getTime() ? p : null,
 );
-const recentPosts = allPostsV2
-  .map((p) => ({
-    path: toPath(p.slug),
-    title: p.data.title,
-    date: toDate(p.slug),
-  }))
-  .reverse();
+const recentPosts = allPostsV2.map((p) => ({
+  path: toPath(p.id),
+  title: p.data.title,
+  date: toDate(p.id),
+}));
+recentPosts.sort((a, b) => b.path.localeCompare(a.path));
 ---
 
 <RootLayout>

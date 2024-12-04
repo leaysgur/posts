@@ -15,18 +15,12 @@ export const GET: APIRoute = async ({ site }) => {
     getCollection("posts-v2"),
   ]);
 
-  const allPosts = [
-    ...allPostsV1.map((p) => ({
-      title: p.data.title,
-      link: toPath(p.id),
-      pubDate: toDate(p.id),
-    })),
-    ...allPostsV2.map((p) => ({
-      title: p.data.title,
-      link: toPath(p.slug),
-      pubDate: toDate(p.slug),
-    })),
-  ].reverse();
+  const allPosts = [...allPostsV1, ...allPostsV2].map((p) => ({
+    title: p.data.title,
+    link: toPath(p.id),
+    pubDate: toDate(p.id),
+  }));
+  allPosts.sort((a, b) => b.link.localeCompare(a.link));
 
   return rss({
     title: PUBLIC_SITE_TITLE,
