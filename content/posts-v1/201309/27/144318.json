@@ -1,4 +1,4 @@
 {
   "title": "iOS7のiPod touchのユーザーエージェントが変わったぽい",
-  "html": "<p>メモ。</p>\n\n    <blockquote>\n        <p><a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/Mozilla\">Mozilla</a>/5.0 (<a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/iPod%20touch\">iPod touch</a>; CPU <a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/iPhone\">iPhone</a> OS 7_0 like <a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/Mac%20OS%20X\">Mac OS X</a>) AppleWebKit/537.51.1 (<a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/KHTML\">KHTML</a>, like <a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/Gecko\">Gecko</a>) Version/7.0 Mobile/11A465 <a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/Safari\">Safari</a>/9537.53</p>\n\n    </blockquote>\n<p>touch ってつくようになったぽい。</p>\n"
+  "html": "<p>メモ。</p>\n\n    <blockquote>\n        <p>Mozilla/5.0 (iPod touch; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53</p>\n\n    </blockquote>\n<p>touch ってつくようになったぽい。</p>\n"
 }

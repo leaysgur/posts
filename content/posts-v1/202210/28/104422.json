@@ -1,4 +1,4 @@
 {
   "title": "`npx tsc --noEmit`したい",
-  "html": "<p>っていうことが最近よくあって。</p><p>純TSなプロジェクトならそんなことはないと思うけど、JSDoc TSでやってたりすると。<br />\n<br />\n<br />\n</p>\n\n<div class=\"section\">\n    <h3 id=\"できた\">できた</h3>\n    <p>結論からいうとできた。</p>\n<pre class=\"code\" data-lang=\"\" data-unlink>npx -p typescript tsc -p ./jsconfig.json --noEmit\n# or\nnpm exec --package=typescript -- tsc -p ./jsconfig.json --noEmit</pre><p>`npx <a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/tsc\">tsc</a>`ってやると、「これはあなたの求めるパッケージではない！」っていう警告がでかでかと表示されちゃう。（`typescript`がインストール済の場合は動くけど）</p>\n\n</div>"
+  "html": "<p>っていうことが最近よくあって。</p><p>純TSなプロジェクトならそんなことはないと思うけど、JSDoc TSでやってたりすると。<br />\n<br />\n<br />\n</p>\n\n<div class=\"section\">\n    <h3 id=\"できた\">できた</h3>\n    <p>結論からいうとできた。</p>\n<pre class=\"code\" data-lang=\"\" data-unlink>npx -p typescript tsc -p ./jsconfig.json --noEmit\n# or\nnpm exec --package=typescript -- tsc -p ./jsconfig.json --noEmit</pre><p>`npx tsc`ってやると、「これはあなたの求めるパッケージではない！」っていう警告がでかでかと表示されちゃう。（`typescript`がインストール済の場合は動くけど）</p>\n\n</div>"
 }

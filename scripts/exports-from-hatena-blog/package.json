@@ -1,0 +1,6 @@
+{
+  "name": "exports-from-hatena-blog",
+  "dependencies": {
+    "html-rewriter-wasm": "^0.4.1"
+  }
+}

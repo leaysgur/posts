@@ -1,6 +1,10 @@
 // @ts-check
 import { readFile, mkdir, writeFile, rm } from "node:fs/promises";
 import { resolve } from "node:path";
+import { HTMLRewriter } from "html-rewriter-wasm";
+
+const encoder = new TextEncoder();
+const decoder = new TextDecoder();
 
 /** @param {string} str */
 const decodeHTMLEntities = (str) => {
@@ -35,7 +39,7 @@ const decodeHTMLEntities = (str) => {
 //
 // Clean up first
 //
-const distPath = resolve("../../src/content/posts-v1");
+const distPath = resolve("../../content/posts-v1");
 await rm(distPath, { recursive: true, force: true });
 
 //
@@ -93,17 +97,51 @@ for (const entry of entries) {
   }
 
   //
+  // Remove hatena blog specific markups
+  //
+  let output = "";
+
+  const rewriter = new HTMLRewriter((outputChunk) => {
+    output += decoder.decode(outputChunk);
+  });
+
+  rewriter.on("a", {
+    element(element) {
+      const href = element.getAttribute("href");
+      if (
+        href?.startsWith("http://d.hatena.ne.jp/keyword/") ||
+        href?.startsWith("https://d.hatena.ne.jp/keyword/")
+      ) {
+        element.removeAndKeepContent();
+      }
+    },
+  });
+
+  try {
+    await rewriter.write(encoder.encode(html));
+    await rewriter.end();
+  } finally {
+    rewriter.free();
+  }
+
+  //
   // Save parsed entry
   //
   const [yyyy, mm, dd, hhmmss] = basename.split("/");
-  const distPath = resolve("../../src/content/posts-v1", yyyy + mm, dd);
+  const distPath = resolve("../../content/posts-v1", yyyy + mm, dd);
   await mkdir(distPath, { recursive: true });
   // Use `.json(type=data)` instead of `.md(type=content)`.
   // We have already rendered HTML, but if use `.md` here,
   // it will be doubly rendered and it's slow!
   await writeFile(
     `${distPath}/${hhmmss}.json`,
-    JSON.stringify({ title, html }),
+    JSON.stringify({ title, html: output }, null, 2) + "\n",
   );
   console.log("✨", basename, title);
 }
+
+// This is already converted manually
+await rm(resolve("../../content/posts-v1/202308"), {
+  recursive: true,
+  force: true,
+});

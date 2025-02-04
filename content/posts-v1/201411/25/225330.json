@@ -1,4 +1,4 @@
 {
   "title": "LocalStorageに関する覚書",
-  "html": "<p>忘れちゃうと困るからメモ。<br />\n<br />\n</p>\n\n<div class=\"section\">\n    <h3>LocalStorageの特徴</h3>\n    \n<ul>\n<li>1<a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/%A5%C9%A5%E1%A5%A4%A5%F3\">ドメイン</a>あたり、最大約5MBまで保存できる</li>\n<li>保存できるのはStringだけ</li>\n<li>setItem('key', 'value') と getItem('key') のペア</li>\n<li>読み書きは同期実行</li>\n<li><a class=\"keyword\" href=\"http://d.hatena.ne.jp/keyword/iOS\">iOS</a>のプライベートモードでは使えない</li>\n<li>WebView下ではアプリ側で制限されている可能性を考慮する</li>\n<li>端末データの削除で消される可能性を考慮する</li>\n</ul><p>SessionStorageは考えてなかったので調べてない。</p>\n\n</div>"
+  "html": "<p>忘れちゃうと困るからメモ。<br />\n<br />\n</p>\n\n<div class=\"section\">\n    <h3>LocalStorageの特徴</h3>\n    \n<ul>\n<li>1ドメインあたり、最大約5MBまで保存できる</li>\n<li>保存できるのはStringだけ</li>\n<li>setItem('key', 'value') と getItem('key') のペア</li>\n<li>読み書きは同期実行</li>\n<li>iOSのプライベートモードでは使えない</li>\n<li>WebView下ではアプリ側で制限されている可能性を考慮する</li>\n<li>端末データの削除で消される可能性を考慮する</li>\n</ul><p>SessionStorageは考えてなかったので調べてない。</p>\n\n</div>"
 }
