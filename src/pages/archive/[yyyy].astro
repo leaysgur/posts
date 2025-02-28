@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+import { toPath, toDate } from "../../libs/utils";
+import RootLayout from "../../components/root-layout/index.astro";
+import PostList from "../../components/post-list.astro";
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (() => {
+  const years = [];
+  for (let year = 2011; year <= 2025; year++) years.push(year);
+
+  return years.map((yyyy) => ({ params: { yyyy: String(yyyy) } }));
+}) satisfies GetStaticPaths;
+
+const {
+  params: { yyyy },
+} = Astro;
+
+const [allPostsV1, allPostsV2] = await Promise.all([
+  getCollection("posts-v1", (p) => p.id.startsWith(yyyy)),
+  getCollection("posts-v2", (p) => p.id.startsWith(yyyy)),
+]);
+
+const posts = [...allPostsV1, ...allPostsV2].map((p) => ({
+  path: toPath(p.id),
+  title: p.data.title,
+  date: toDate(p.id),
+}));
+posts.sort((a, b) => b.path.localeCompare(a.path));
+---
+
+<RootLayout pageTitle=`All Posts in ${yyyy}`>
+  <h1>All Posts in {yyyy}</h1>
+  <p>There are {posts.length} posts.</p>
+  <PostList items={posts} />
+</RootLayout>
