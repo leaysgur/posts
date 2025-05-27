@@ -4,7 +4,9 @@ import { toPath, toDate } from "../libs/utils";
 import RootLayout from "../components/root-layout/index.astro";
 import PostList from "../components/post-list.astro";
 
-const RECENT_90_DAYS = Date.now() - 90 * 24 * 60 * 60 * 1000;
+const { PUBLIC_BASE_PATH } = import.meta.env;
+const NOW = new Date();
+const RECENT_90_DAYS = NOW.getTime() - 90 * 24 * 60 * 60 * 1000;
 
 const allPostsV2 = await getCollection("posts-v2", (p) =>
   RECENT_90_DAYS < toDate(p.id).getTime() ? p : null,
@@ -15,9 +17,14 @@ const recentPosts = allPostsV2.map((p) => ({
   date: toDate(p.id),
 }));
 recentPosts.sort((a, b) => b.path.localeCompare(a.path));
+const lastPostYear =
+  recentPosts.at(-1)?.date.getFullYear() ?? NOW.getFullYear();
 ---
 
 <RootLayout>
   <h1>Recent Posts</h1>
   <PostList items={recentPosts} />
+  <a href={PUBLIC_BASE_PATH + "archive/" + lastPostYear + "/"}
+    >View more posts from {lastPostYear}</a
+  >
 </RootLayout>
