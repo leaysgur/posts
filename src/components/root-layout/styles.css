@@ -75,7 +75,7 @@
   max-inline-size: clamp(320px, 100%, 1000px);
   margin: auto;
   padding-inline: var(--size-3);
-  padding-block: var(--size-2);
+  padding-block: var(--size-1);
   word-break: break-word;
 }
 
