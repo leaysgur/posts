@@ -1,4 +1,4 @@
 dist
-src/content/**/*.json
-src/content/**/*.md
+content/**/*.json
+content/**/*.md
 package-lock.json
