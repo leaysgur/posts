@@ -44,12 +44,14 @@ const title = pageTitle
   </head>
   <body>
     <header>
-      <a href={PUBLIC_BASE_PATH} title={PUBLIC_SITE_TITLE}>🧊</a>
-      <nav>
-        <a href={PUBLIC_BASE_PATH + "archive" + "/"}>All Posts</a>
-        {" | "}
-        <a href={PUBLIC_BASE_PATH + "rss.xml"}>RSS</a>
-      </nav>
+      <div>
+        <a href={PUBLIC_BASE_PATH} title={PUBLIC_SITE_TITLE}>🧊</a>
+        <nav>
+          <a href={PUBLIC_BASE_PATH + "archive" + "/"}>All Posts</a>
+          {" | "}
+          <a href={PUBLIC_BASE_PATH + "rss.xml"}>RSS</a>
+        </nav>
+      </div>
     </header>
 
     <main><slot /></main>
@@ -66,11 +68,25 @@ const title = pageTitle
 
 <style>
   header {
-    display: flex;
-    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--background);
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      /* The same as `:where(body)` */
+      max-inline-size: clamp(320px, 100%, 1000px);
+      margin: auto;
+      padding-inline: var(--size-3);
+      padding-block: var(--size-1);
+    }
   }
   main {
     padding-block: var(--size-5);
+    margin-block-start: var(--size-5);
   }
   footer {
     display: flex;
