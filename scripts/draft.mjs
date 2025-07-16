@@ -55,27 +55,21 @@ async function publishCommand(draftPath) {
   console.log("🧊", `New post: ${postPath}`);
 
   function postDate() {
-    const now = new Date();
-    const yyyymmdd = now
-      .toLocaleDateString("ja-JP", {
+    const now = new Date()
+      .toLocaleString("ja-JP", {
         year: "numeric",
         month: "2-digit",
         day: "2-digit",
-        timeZone: "Asia/Tokyo",
-      })
-      .split("/");
-    const yyyymm = yyyymmdd.slice(0, 2).join("");
-    const dd = yyyymmdd.slice(2, 3).join("");
-
-    const hhmmss = now
-      .toLocaleTimeString("ja-JP", {
         hour: "2-digit",
         minute: "2-digit",
         second: "2-digit",
         timeZone: "Asia/Tokyo",
       })
-      // @ts-ignore
-      .replaceAll(":", "");
+      .replaceAll(/[/: ]/g, "");
+
+    const yyyymm = now.slice(0, 6);
+    const dd = now.slice(6, 8);
+    const hhmmss = now.slice(8, 14);
 
     return [yyyymm, dd, hhmmss];
   }
