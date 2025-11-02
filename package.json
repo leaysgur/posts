@@ -9,10 +9,10 @@
     "format": "prettier --write --plugin=prettier-plugin-astro ."
   },
   "devDependencies": {
-    "@astrojs/rss": "^4.0.12",
+    "@astrojs/rss": "^4.0.13",
     "@astrojs/ts-plugin": "^1.10.5",
-    "@types/node": "^24.9.1",
-    "astro": "^5.14.8",
+    "@types/node": "^24.9.2",
+    "astro": "^5.15.3",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.9.3"
