@@ -11,8 +11,8 @@
   "devDependencies": {
     "@astrojs/rss": "^4.0.13",
     "@astrojs/ts-plugin": "^1.10.5",
-    "@types/node": "^24.9.2",
-    "astro": "^5.15.3",
+    "@types/node": "^24.10.0",
+    "astro": "^5.15.4",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.9.3"
