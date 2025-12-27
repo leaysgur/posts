@@ -6,10 +6,10 @@ import PostList from "../components/post-list.astro";
 
 const { PUBLIC_BASE_PATH } = import.meta.env;
 const NOW = new Date();
-const RECENT_90_DAYS = NOW.getTime() - 90 * 24 * 60 * 60 * 1000;
+const RECENT_180_DAYS = NOW.getTime() - 180 * 24 * 60 * 60 * 1000;
 
 const allPostsV2 = await getCollection("posts-v2", (p) =>
-  RECENT_90_DAYS < toDate(p.id).getTime() ? p : null,
+  RECENT_180_DAYS < toDate(p.id).getTime() ? p : null,
 );
 const recentPosts = allPostsV2.map((p) => ({
   path: toPath(p.id),
