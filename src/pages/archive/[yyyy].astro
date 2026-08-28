@@ -5,11 +5,18 @@ import RootLayout from "../../components/root-layout/index.astro";
 import PostList from "../../components/post-list.astro";
 import type { GetStaticPaths } from "astro";
 
-export const getStaticPaths = (() => {
-  const years = [];
-  for (let year = 2011; year <= 2025; year++) years.push(year);
+export const getStaticPaths = (async () => {
+  const [allPostsV1, allPostsV2] = await Promise.all([
+    getCollection("posts-v1"),
+    getCollection("posts-v2"),
+  ]);
 
-  return years.map((yyyy) => ({ params: { yyyy: String(yyyy) } }));
+  const years = new Set(
+    // `id` format is `yyyymm/dd/hhmmss`
+    [...allPostsV1, ...allPostsV2].map((p) => p.id.slice(0, 4)),
+  );
+
+  return [...years].map((yyyy) => ({ params: { yyyy } }));
 }) satisfies GetStaticPaths;
 
 const {
