@@ -2,3 +2,4 @@ dist
 content/**/*.json
 content/**/*.md
 package-lock.json
+pnpm-lock.yaml
