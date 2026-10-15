@@ -17,14 +17,13 @@ const recentPosts = allPostsV2.map((p) => ({
   date: toDate(p.id),
 }));
 recentPosts.sort((a, b) => b.path.localeCompare(a.path));
-const lastPostYear =
-  recentPosts.at(-1)?.date.getFullYear() ?? NOW.getFullYear();
+const lastPostYear = recentPosts.at(-1)?.date.getFullYear() ?? NOW.getFullYear();
 ---
 
 <RootLayout>
   <h1>Recent Posts</h1>
   <PostList items={recentPosts} />
-  <a href={PUBLIC_BASE_PATH + "archive/" + lastPostYear + "/"}
-    >View more posts from {lastPostYear}</a
-  >
+  <a href={PUBLIC_BASE_PATH + "archive/" + lastPostYear + "/"}>
+    View more posts from {lastPostYear}
+  </a>
 </RootLayout>

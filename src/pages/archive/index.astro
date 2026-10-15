@@ -38,15 +38,12 @@ for (const post of allPosts) {
 <RootLayout pageTitle="All Posts">
   <h1>All Posts</h1>
   <p>There are {allPosts.length} posts.</p>
-  {
-    grouped.map(({ year, posts }, idx) => (
-      <details open={idx === 0}>
-        <summary>
-          <a href={PUBLIC_BASE_PATH + "archive/" + year + "/"}>{year}</a>:{" "}
-          {posts.length} posts
-        </summary>
-        <PostList items={posts} />
-      </details>
-    ))
-  }
+  {grouped.map(({ year, posts }, idx) => (
+    <details open={idx === 0}>
+      <summary>
+        <a href={PUBLIC_BASE_PATH + "archive/" + year + "/"}>{year}</a>: {posts.length} posts
+      </summary>
+      <PostList items={posts} />
+    </details>
+  ))}
 </RootLayout>

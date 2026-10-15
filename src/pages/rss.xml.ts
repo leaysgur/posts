@@ -3,8 +3,7 @@ import { getCollection } from "astro:content";
 import { toPath, toDate } from "../libs/utils";
 import type { APIRoute } from "astro";
 
-const { PUBLIC_SITE_TITLE, PUBLIC_SITE_DESCRIPTION, PUBLIC_BASE_PATH } =
-  import.meta.env;
+const { PUBLIC_SITE_TITLE, PUBLIC_SITE_DESCRIPTION, PUBLIC_BASE_PATH } = import.meta.env;
 
 export const GET: APIRoute = async ({ site }) => {
   const siteUrl = new URL(site!);

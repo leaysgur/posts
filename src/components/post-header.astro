@@ -10,19 +10,17 @@ const {
 
 <header>
   <h1>{title}</h1>
-  <time datetime={date.toJSON()}
-    >{
-      date.toLocaleString("ja-JP", {
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        timeZone: "Asia/Tokyo",
-      })
-    }</time
-  >
+  <time datetime={date.toJSON()}>
+    {date.toLocaleString("ja-JP", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      timeZone: "Asia/Tokyo",
+    })}
+  </time>
 </header>
 
 <style>

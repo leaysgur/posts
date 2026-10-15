@@ -29,8 +29,7 @@ const decodeHTMLEntities = (str) => {
     let match;
     if ((match = entityCode.match(/^#x([\da-fA-F]+)$/)))
       return String.fromCharCode(parseInt(match[1], 16));
-    if ((match = entityCode.match(/^#(\d+)$/)))
-      return String.fromCharCode(~~match[1]);
+    if ((match = entityCode.match(/^#(\d+)$/))) return String.fromCharCode(~~match[1]);
 
     return entity;
   });
@@ -84,10 +83,7 @@ for (const entry of entries) {
 
         for (const attr of kind.split("\n")) {
           const splitIdx = attr.indexOf(": ");
-          const [key, value] = [
-            attr.slice(0, splitIdx),
-            attr.slice(splitIdx + 2),
-          ];
+          const [key, value] = [attr.slice(0, splitIdx), attr.slice(splitIdx + 2)];
 
           if (key === "TITLE") title = decodeHTMLEntities(value);
           if (key === "BASENAME") basename = value;

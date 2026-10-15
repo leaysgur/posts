@@ -13,9 +13,7 @@ const { PUBLIC_BASE_PATH, PUBLIC_SITE_TITLE } = import.meta.env;
 
 const ASSETS_FULL_PATH = origin + PUBLIC_BASE_PATH;
 
-const title = pageTitle
-  ? `${pageTitle} | ${PUBLIC_SITE_TITLE}`
-  : PUBLIC_SITE_TITLE;
+const title = pageTitle ? `${pageTitle} | ${PUBLIC_SITE_TITLE}` : PUBLIC_SITE_TITLE;
 ---
 
 <!doctype html>
@@ -30,11 +28,7 @@ const title = pageTitle
     <meta property="og:url" content={href} />
     <meta property="og:image" content={ASSETS_FULL_PATH + "ogp.png"} />
     <link rel="canonical" href={href} />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href={ASSETS_FULL_PATH + "favicon.svg"}
-    />
+    <link rel="icon" type="image/svg+xml" href={ASSETS_FULL_PATH + "favicon.svg"} />
     <link
       rel="alternate"
       type="application/rss+xml"
@@ -45,7 +39,9 @@ const title = pageTitle
   <body>
     <header>
       <div>
-        <a href={PUBLIC_BASE_PATH} title={PUBLIC_SITE_TITLE}>🧊</a>
+        <a href={PUBLIC_BASE_PATH} title={PUBLIC_SITE_TITLE}>
+          🧊
+        </a>
         <nav>
           <a href={PUBLIC_BASE_PATH + "archive" + "/"}>All Posts</a>
           {" | "}
@@ -54,13 +50,20 @@ const title = pageTitle
       </div>
     </header>
 
-    <main><slot /></main>
+    <main>
+      <slot />
+    </main>
 
     <footer>
       <span>
-        ✨ Follow me on <a href="https://github.com/leaysgur" target="_blank"
-          >GitHub</a
-        >, <a href="https://x.com/leaysgur" target="_blank">X(Twitter)</a>
+        ✨ Follow me on{" "}
+        <a href="https://github.com/leaysgur" target="_blank">
+          GitHub
+        </a>
+        ,{" "}
+        <a href="https://x.com/leaysgur" target="_blank">
+          X(Twitter)
+        </a>
       </span>
     </footer>
   </body>

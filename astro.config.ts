@@ -1,11 +1,7 @@
 import { loadEnv } from "vite";
 import { defineConfig } from "astro/config";
 
-const { PUBLIC_BASE_PATH, PUBLIC_SHIKI_THEME } = loadEnv(
-  import.meta.env.MODE,
-  process.cwd(),
-  "",
-);
+const { PUBLIC_BASE_PATH, PUBLIC_SHIKI_THEME } = loadEnv(import.meta.env.MODE, process.cwd(), "");
 
 export default defineConfig({
   site: "https://leaysgur.github.io",

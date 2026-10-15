@@ -45,10 +45,7 @@ const { PUBLIC_SHIKI_THEME } = import.meta.env;
   // Replace `word` into <code>word</code>.
   (() => {
     const replace = async (targetEl: Element) => {
-      targetEl.innerHTML = targetEl.innerHTML.replaceAll(
-        /`([^`]*?)`/g,
-        "<code>$1</code>",
-      );
+      targetEl.innerHTML = targetEl.innerHTML.replaceAll(/`([^`]*?)`/g, "<code>$1</code>");
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
@@ -57,18 +54,14 @@ const { PUBLIC_SHIKI_THEME } = import.meta.env;
         replace(entry.target).finally(() => observer.unobserve(entry.target));
       }
     }, {});
-    const $targets = document.querySelectorAll(
-      "[data-post-body] :is(p, li, h3, h4, h5)",
-    );
+    const $targets = document.querySelectorAll("[data-post-body] :is(p, li, h3, h4, h5)");
     for (const $target of $targets) observer.observe($target);
   })();
 
   // Apply syntax highlight to code block.
   (() => {
     const shikiTheme =
-      document
-        .querySelector("[data-shiki-theme]")
-        ?.getAttribute("data-shiki-theme") ?? "";
+      document.querySelector("[data-shiki-theme]")?.getAttribute("data-shiki-theme") ?? "";
 
     const highlight = async (targetEl: Element) => {
       // @ts-ignore: Use CDN version for faster build
@@ -87,10 +80,7 @@ const { PUBLIC_SHIKI_THEME } = import.meta.env;
         options.lang = lang;
       } catch {}
 
-      targetEl.outerHTML = highlighter.codeToHtml(
-        targetEl.textContent ?? "",
-        options,
-      );
+      targetEl.outerHTML = highlighter.codeToHtml(targetEl.textContent ?? "", options);
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
